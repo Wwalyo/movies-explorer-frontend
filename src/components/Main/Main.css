@@ -3,5 +3,11 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  max-width: 1140px;
+  min-width: 320px;
+  width: 100%;
+}
+
+@media screen and (min-width: 769px) {
 
 }

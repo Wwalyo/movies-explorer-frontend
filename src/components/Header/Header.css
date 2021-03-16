@@ -5,9 +5,26 @@
   flex-direction: row;
   justify-content: space-between;
   height: 74px;
+  max-width: 1140px;
+  min-width: 320px;
   width: 100%;
 }
 
+/* @media screen and (max-width: 656px) {
+  .profile {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 482px) {
+  .profile__name {
+    font-size: 27px;
+    margin-right: 6px;
+    text-align: center;
+    vertical-align: baseline;
+  }
+} */
+ 
 .Header__logo {
   margin-left: 14px;
   height: 38px;
@@ -41,4 +58,22 @@
   text-align: center;
   text-decoration: none;
   width: 54px;
+}
+
+@media screen and (min-width: 769px) {
+  .Header__logo {
+    margin-left: 70px;
+  }
+
+  .Header__link {
+    font-size: 12px;
+  }
+
+  .Header__link-button {
+    font-size: 12px;
+    height: 32px;
+    margin-left: 30px;
+    margin-right: 70px;
+    width: 76px;
+  }
 }
