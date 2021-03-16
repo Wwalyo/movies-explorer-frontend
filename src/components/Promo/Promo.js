@@ -6,7 +6,7 @@ function Promo() {
 
   return (
     <div className="Promo">
-        Пустой
+    
     </div>
   );
 }
