@@ -1,5 +1,12 @@
 .App {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  align-items: center;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  font-family: 'Inter', Arial, sans-serif;
+  text-rendering: optimizelegibility;
+  width: 100%;
 }
