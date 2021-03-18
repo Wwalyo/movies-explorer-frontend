@@ -4,4 +4,31 @@
   justify-content: center;  
   margin-left: 14px;
   margin-right: 14px;
+  margin-top: 70px;
+}
+
+.AboutProject__header {
+  color: #fff;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: -0.04em;
+  line-height: 22px;
+  margin: 0;
+  padding: 0;
+}
+
+.AboutProject__line {
+  color: #DADADA;
+  margin-top: 28px;
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+.AboutProject__description {
+  color: #fff;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16px;
+  margin: 0;
+  padding: 0;
 }
