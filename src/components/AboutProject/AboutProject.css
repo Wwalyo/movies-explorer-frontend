@@ -1,0 +1,8 @@
+.AboutProject {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  margin-left: 14px;
+  margin-right: 14px;
+}

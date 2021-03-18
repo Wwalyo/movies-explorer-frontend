@@ -1,5 +1,6 @@
 import './Main.css';
-import Promo from '../Promo/Promo'
+import Promo from '../Promo/Promo';
+import AboutProject from '../AboutProject/AboutProject';
 
 
 function Main() {
@@ -7,6 +8,7 @@ function Main() {
   return (
     <main className="Main">
       <Promo />
+      <AboutProject />
     </main>
   );
 }
