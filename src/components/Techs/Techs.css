@@ -8,7 +8,8 @@
 }
 
 .Techs__line {
-  color: #000000;
+  border-color: #000000;
+  margin-top: 0;
   margin-bottom: 60px;
   width: 100%;
 }
@@ -19,34 +20,112 @@
   font-size: 30px;
   line-height: 36px;
   letter-spacing: -0.04em;
+  margin-bottom: 24px;
   text-align: center;
 }
 
-.Techs-grid{
-  column-gap: 10px;
-  display: grid;
-  grid-template-columns: repeat(2, 84px);
-  grid-template-rows: repeat(4, 84px);
-  grid-auto-flow: column;
-  justify-content: center;
-  row-gap: 10px;
-  
-  
+.Techs__description {
+  align-self: center;
+  color: #fff;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16px;
+  margin: 0;
+  margin-bottom: 50px;
+  padding: 0;
+  text-align: center;  
 }
 
-.Techs-grid__item{
+.Techs-scroll {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  max-width: 178px;
+  margin-bottom: 60px;  
+}
+
+.Techs-scroll__item {
+  display: inline-block;
   background: #303030;
   border-radius: 10px;
   color: #FFFFFF;
-  display: block;
   font-size: 12px;
+  font-weight: 400;
+  width: 84px;
   height: 57px;
   letter-spacing: -0.04em;
   line-height: 15px;
   margin: 0;
+  margin-bottom: 10px;
   padding: 0;
   text-align: center;
-  font-weight: normal;
 }
 
+@media screen and (min-width: 482px) and (max-width: 1044px) {
+   .Techs {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 90px;
+  }
+  .Techs__line {
+    border-color: #DADADA;;
+    margin-bottom: 80px;
+  }
+  .Techs__subtitle {
+    font-size: 50px;
+    line-height: 58px;
+    margin-bottom: 22px;
+  }
+  .Techs__description {
+    margin-bottom: 83px;
+    max-width: 460px;
+  }
+  .Techs-scroll {
+    max-width: 648px;
+    margin-bottom: 90px;    
+  }
+  .Techs-scroll__item {
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
+  .Techs-scroll__item:last-of-type {
+    margin-right: 0;
+  }
+}
 
+@media screen and (min-width: 1045px) {
+  .Techs {
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 100px;
+  }
+  .Techs__line {
+    border-color: #DADADA;;
+    margin-bottom: 90px;
+  }
+  .Techs__subtitle {
+    font-size: 50px;
+    line-height: 58px;
+    margin-bottom: 26px;
+  }
+  .Techs__description {
+    margin-bottom: 100px;
+    max-width: 460px;
+  }
+  .Techs-scroll {
+    max-width: 690px;
+    margin-bottom: 100px;    
+  }
+  .Techs-scroll__item {
+    margin-bottom: 0;
+    margin-right: 10px;
+    height: 60px;
+    width: 90px;
+  }
+  .Techs-scroll__item:last-of-type {
+    margin-right: 0;
+  }
+}

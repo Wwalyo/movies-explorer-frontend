@@ -106,9 +106,11 @@
 
 @media screen and (min-width: 482px) and (max-width: 1044px) {
   .AboutProject {
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 90px;
+    background: #202020;
+    padding-left: 70px;
+    padding-right: 70px;
+    margin: 0;
+    padding-top: 90px;
   }
   .AboutProject__title {
     font-size: 22px;
@@ -159,9 +161,11 @@
 
 @media screen and (min-width: 1045px) {
   .AboutProject {
-    margin-left: 70px;
-    margin-right: 70px;
-    margin-top: 110px;
+    background: #202020;
+    padding-left: 70px;
+    padding-right: 70px;
+    margin: 0;
+    padding-top: 110px;
   }
   .AboutProject__title {
     font-size: 22px;
