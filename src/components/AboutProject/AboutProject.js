@@ -18,14 +18,16 @@ function AboutProject() {
         </div>
       </div>
       <table className="AboutProject__demo-table">
-        <tr>
-          <td className="AboutProject__demo-table_cell-one">1 неделя</td>
-          <td className="AboutProject__demo-table_cell-two">4 недели</td>
-        </tr>
-        <tr>
-          <td className="AboutProject__demo-table_cell-three">Back-end</td>
-          <td className="AboutProject__demo-table_cell-four">Front-end</td>
-        </tr>
+        <tbody>
+          <tr>
+            <td className="AboutProject__demo-table_cell-one">1 неделя</td>
+            <td className="AboutProject__demo-table_cell-two">4 недели</td>
+          </tr>
+          <tr>
+            <td className="AboutProject__demo-table_cell-three">Back-end</td>
+            <td className="AboutProject__demo-table_cell-four">Front-end</td>
+          </tr>
+        </tbody>
       </table>
     
     </div>
