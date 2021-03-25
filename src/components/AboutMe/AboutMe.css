@@ -1,0 +1,26 @@
+.AboutMe {
+  color:#FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  margin-left: 14px;
+  margin-right: 14px;
+  margin-top: 70px;
+}
+
+.Profile__photo {
+    border-radius: 10px;
+    max-height: 352px;
+    max-width: 292px;
+}
+
+.Profile__links {
+  list-style-type: none;
+  
+
+}
+
+.Profile__link {
+  color:#FFFFFF;
+  text-decoration: none;
+}
