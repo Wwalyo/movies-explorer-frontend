@@ -12,15 +12,148 @@
     border-radius: 10px;
     max-height: 352px;
     max-width: 292px;
+    margin-bottom: 40px;
+}
+
+.Profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.Profile__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.Profile__subtitle {
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 36px;
+  letter-spacing: -0.04em;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.Profile__clarification {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 16px;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.Profile__description {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16px;
+  margin: 0;
+  margin-bottom: 40px;
+  text-overflow: ellipsis;
 }
 
 .Profile__links {
+  display: flex;
+  flex-direction: row;
   list-style-type: none;
+  margin: 0;
+  padding: 0;
   
 
 }
 
 .Profile__link {
-  color:#FFFFFF;
-  text-decoration: none;
+  color:#FFFFFF;  
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  margin-right: 26px;  
+  text-decoration: none; 
+}
+
+.Profile__link:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+@media screen and (min-width: 482px) and (max-width: 1044px) {
+  .AboutMe {
+    background: #202020;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 0;
+    padding-top: 90px;
+  }
+  .Profile {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .Profile__info {
+    justify-content: space-between;
+    max-width: 364px;
+    max-height: 292px;
+
+  }
+  
+  .Profile__photo {
+    margin-bottom: 0;
+    max-height: 307px;
+  }
+  .Profile__subtitle {
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 16px;
+  }
+  .Profile__clarification {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .Profile__description {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 87px;
+    max-height: 180px;
+  }
+}
+
+@media screen and (min-width: 1045px) {
+  .AboutMe {
+    background: #202020;
+    padding-left: 70px;
+    padding-right: 70px;
+    margin: 0;
+    padding-top: 110px;
+  }
+  .Profile {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .Profile__info {
+    justify-content: space-between;
+    max-width: 600px;
+    max-height: 292px;
+  }
+  
+  .Profile__photo {
+
+    margin-bottom: 0;
+    max-height: 327px;
+  }
+  .Profile__subtitle {
+    font-size: 50px;
+    line-height: 58px;
+    margin-bottom: 16px;
+  }
+  .Profile__clarification {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .Profile__description {
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 87px;
+    max-height: 180px;
+  }
+
 }

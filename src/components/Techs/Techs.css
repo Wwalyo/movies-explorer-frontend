@@ -46,7 +46,7 @@
   max-width: 178px;
   margin-bottom: 60px;  
 }
-
+/* Сделать чтобы на средней величине красивоп переносилось на вторую строчку */
 .Techs-scroll__item {
   display: inline-block;
   background: #303030;

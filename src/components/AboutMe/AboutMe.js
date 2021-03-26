@@ -8,9 +8,9 @@ function AboutMe() {
     return (
       <div className="AboutMe">
         <h3 className="AboutProject__title">Студент</h3>
-        <hr className="AboutProject__line"></hr>
-        <img className="Profile__photo" src={photo} alt="Моё фото"></img>
+        <hr className="AboutProject__line"></hr>        
         <div className="Profile">
+          <img className="Profile__photo" src={photo} alt="Моё фото"></img>
           <div className="Profile__info">
             <h2 className="Profile__subtitle">Алена</h2>
             <p className="Profile__clarification">Фронтенд-разработчик, 31 год</p>
