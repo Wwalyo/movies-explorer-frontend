@@ -51,7 +51,6 @@
 
 @media screen and (min-width: 482px) and (max-width: 1044px) {
   .Portfolio {
-    background: #202020;
     padding-left: 50px;
     padding-right: 50px;
     margin: 0;
@@ -59,7 +58,6 @@
   }
   .Portfolio__title {
     font-size: 18px;
-    line-height: 20px;
     margin-bottom: 50px;
   }
   .Portfolio__link {
@@ -74,19 +72,25 @@
 
 @media screen and (min-width: 1045px) {
   .Portfolio {
-    background: #202020;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 100px;
     margin: 0;
-    padding-top: 90px;
   }
   .Portfolio__title {
     color: #8B8B8B;
-    font-weight: 400;
     font-size: 18px;
     margin-bottom: 40px;
   }
   .Portfolio__line {
   background: #424242;
+  }
+  .Portfolio__link {
+    font-size: 30px;
+    line-height: 50px;
+  }
+  .Portfolio__arrow {
+    height: 25px;
+    width: 25px;
   }
 }

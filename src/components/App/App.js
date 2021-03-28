@@ -4,7 +4,8 @@ import { Router, Route, Redirect, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 import Header from '../Header/Header';
-import Main from '../Main/Main'
+import Main from '../Main/Main';
+import Footer from '../Footer/Footer';
 
 
 const history = createBrowserHistory();
@@ -14,7 +15,8 @@ function App() {
     <Router history={history}>
       <div className="App">
         <Header />
-        <Main/> 
+        <Main/>
+        <Footer/> 
       </div>
     </Router>
   );

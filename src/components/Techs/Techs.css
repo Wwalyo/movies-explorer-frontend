@@ -66,9 +66,11 @@
 
 @media screen and (min-width: 482px) and (max-width: 1044px) {
    .Techs {
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 90px;
+    background: #272727;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 0;
+    padding-top: 90px;
   }
   .Techs__line {
     border-color: #DADADA;;
@@ -80,6 +82,8 @@
     margin-bottom: 22px;
   }
   .Techs__description {
+    font-size: 12px;
+    line-height: 18px;
     margin-bottom: 83px;
     max-width: 460px;
   }
@@ -88,6 +92,8 @@
     margin-bottom: 90px;    
   }
   .Techs-scroll__item {
+    font-size: 12px;
+    line-height: 15px;
     margin-right: 10px;
     margin-bottom: 0;
   }
@@ -98,9 +104,11 @@
 
 @media screen and (min-width: 1045px) {
   .Techs {
-    margin-left: 70px;
-    margin-right: 70px;
-    margin-top: 100px;
+    background: #272727;
+    padding-left: 70px;
+    padding-right: 70px;
+    margin: 0;
+    padding-top: 100px;
   }
   .Techs__line {
     border-color: #DADADA;;
@@ -112,6 +120,8 @@
     margin-bottom: 26px;
   }
   .Techs__description {
+    font-size: 14px;
+    line-height: 20px;   
     margin-bottom: 100px;
     max-width: 460px;
   }
@@ -120,6 +130,8 @@
     margin-bottom: 100px;    
   }
   .Techs-scroll__item {
+    font-size: 14px;
+    line-height: 17px;
     margin-bottom: 0;
     margin-right: 10px;
     height: 60px;
