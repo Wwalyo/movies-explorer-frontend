@@ -21,7 +21,7 @@ function Login() {
         <button type="submit" className="Login__submit">Войти</button>
         <div className="Login__hint">
           <p className="Login__hint-text">Ещё не зарегистрированы?</p>
-          <Link to="/sign-un" className="NotFound__link">Регистрация</Link>
+          <Link to="/sign-up" className="NotFound__link">Регистрация</Link>
         </div>
       </form> 
     </div>
