@@ -9,6 +9,7 @@ import Footer from '../Footer/Footer';
 import NotFound from '../NotFound/NotFound';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
+import Profile from '../Profile/Profile';
 
 
 const history = createBrowserHistory();
@@ -23,6 +24,9 @@ function App() {
             </Route>
             <Route path="/sign-up">
               <Register />
+            </Route>
+            <Route path="/profile">
+              <Profile />
             </Route>
             <Route exact path="/">
               <Header />
