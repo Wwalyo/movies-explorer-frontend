@@ -8,28 +8,29 @@ import '../Header/Header.css';
 
 function Profile() {
   return (
-    <div class="Profile">
+    <div className="Profile">
       <div className="Profile__header">
         <img src={logo} className="Header__logo" alt="Логотип Movie"/>     
         <img src={burger} className="Burger" alt="открывающееся меню"/>
       </div>
-      <h2 className="Login__title">Привет, Виталий!</h2>
-      <form className="Profile-content">
-        <div className="Profile-content__name-cell">
-          <p className="Profile-content__name-cell_name">Имя</p>
-          <p className="Profile-content__name-cell_value"/>
+      <h2 className="Login__title">Привет, Андрей!</h2>
+      <div className="Profile-content">
+        <div className="Profile-content__cell">
+          <p className="Profile-content__cell_name">Имя</p>
+          <p className="Profile-content__cell_value">Андрей</p>
           
         </div>
         <hr className="Profile__line"></hr>
-        <div className="Profile-form__email-cell">
-          <p className="Profile-content__email-cell_name">Имя</p>
-          <p className="Profile-content__email-cell_value"/>
+        <div className="Profile-content__cell">
+          <p className="Profile-content__cell_name">E-mail</p>
+          <p className="Profile-content__cell_value">test@test.test</p>
 
           
         </div>
-        <Link to="/sign-in" className="NotFound__link">Редактировать</Link>
-        <Link to="/" className="NotFound__link">Выйти из аккаунта</Link>
-      </form>
+      </div>
+        <Link to="/sign-in" className="Profile__edit-link">Редактировать</Link>
+        <Link to="/" className="Profile__exit-link">Выйти из аккаунта</Link>
+      
     </div>
   )
 }

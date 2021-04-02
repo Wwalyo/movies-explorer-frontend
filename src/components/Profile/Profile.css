@@ -4,8 +4,80 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 56px;
   max-width: 1280px;
   min-width: 320px;
   width: 100%;    
+}
+
+.Profile__header {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  width: 100%;
+}
+
+.Burger {
+  margin-right: 14px;
+}
+
+.Profile-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 379px;
+  width: 100%;
+}
+
+.Profile-content__cell {
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  font-weight: 500;
+  font-size: 11px;
+  justify-content: space-between;
+  line-height: 13px;  
+  
+  width: 100%;
+}
+
+.Profile__line {
+  width: 260px;
+  margin-top: 16px;
+  margin-bottom: 17px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+
+.Profile-content__cell_name {
+  margin: 0;
+  margin-left: 30px;
+}
+
+.Profile-content__cell_value {
+  margin: 0;
+  margin-right: 30px;
+}
+
+.Profile__edit-link {
+  color: #FFFFFF;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  margin-bottom: 16px;
+  text-decoration: none;
+}
+.Profile__exit-link {
+  color: #EE3465;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  margin-bottom: 40px;
+  text-decoration: none;
+
 }
