@@ -1,10 +1,10 @@
-import './Profile.css';
-import logo from '../../images/logo.svg';
-import burger from '../../images/burger.svg';
 import { Link } from 'react-router-dom';
+
+import './Profile.css';
 import '../Header/Header.css';
 
-
+import logo from '../../images/logo.svg';
+import burger from '../../images/burger.svg';
 
 function Profile() {
   return (
@@ -17,22 +17,18 @@ function Profile() {
       <div className="Profile-content">
         <div className="Profile-content__cell">
           <p className="Profile-content__cell_name">Имя</p>
-          <p className="Profile-content__cell_value">Андрей</p>
-          
+          <p className="Profile-content__cell_value">Андрей</p>          
         </div>
         <hr className="Profile__line"></hr>
         <div className="Profile-content__cell">
           <p className="Profile-content__cell_name">E-mail</p>
-          <p className="Profile-content__cell_value">test@test.test</p>
-
-          
+          <p className="Profile-content__cell_value">test@test.test</p>          
         </div>
       </div>
         <Link to="/sign-in" className="Profile__edit-link">Редактировать</Link>
-        <Link to="/" className="Profile__exit-link">Выйти из аккаунта</Link>
-      
+        <Link to="/" className="Profile__exit-link">Выйти из аккаунта</Link>      
     </div>
-  )
+  );
 }
   
 export default Profile;

@@ -1,10 +1,8 @@
 import './Promo.css';
+
 import promoImage from '../../images/landing-logo.svg';
 
-
-
 function Promo() {
-
   return (
     <div className="Promo">
       <img src={promoImage} className="Promo__image" alt="Земной шар Web" />

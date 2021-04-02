@@ -1,9 +1,7 @@
 import './Techs.css';
 import '../AboutProject/AboutProject.css';
 
-
 function Techs() {
-
   return (
     <div className="Techs">
       <h3 className="AboutProject__title">Технологии</h3>

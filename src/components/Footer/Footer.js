@@ -1,8 +1,6 @@
 import './Footer.css';
 
-
 function Footer() {
-
     return (
       <footer className="Footer">
         <h6 className="Footer__title">Учебный проект Яндекс.Практикум х BeatFilm.</h6>

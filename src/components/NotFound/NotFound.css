@@ -8,7 +8,6 @@
   min-width: 320px;
   width: 100%;
 }
-
 .NotFound__title {
   color: #ffffff;
   font-weight: 400;
@@ -17,7 +16,6 @@
   margin-top: 329px;
   margin-bottom: 10px;
 }
-
 .NotFound__description {
   color:#ffffff;
   font-weight: 400;
@@ -26,7 +24,6 @@
   margin: 0;
   margin-bottom: 284px;
 }
-
 .NotFound__link {
   color: #4285F4;
   font-weight: 400;
@@ -35,9 +32,7 @@
   margin-bottom: 30px;
   text-decoration: none;
 }
-
 @media screen and (min-width: 482px) and (max-width: 1044px) {
-
   .NotFound__title {
     font-size: 140px;
     line-height: 169px;
@@ -49,14 +44,13 @@
     line-height: 19px;
     margin: 0;
     margin-bottom: 184px;
-    }
+  }
   .NotFound__link {
     font-size: 14px;
     line-height: 17px;
     margin-bottom: 222px;
   }
 }
-
 @media screen and (min-width: 1045px) {
   .NotFound__title {
     font-size: 140px;

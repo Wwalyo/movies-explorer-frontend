@@ -1,14 +1,14 @@
+import { Link } from 'react-router-dom';
+
 import './Login.css';
 import '../Header/Header.css';
 import '../NotFound/NotFound.css';
-import { Link } from 'react-router-dom';
-import logo from '../../images/logo.svg';
 
+import logo from '../../images/logo.svg';
 
 function Login() {
   return (
-    <div class="Login">
-          
+    <div class="Login">          
       <form className="Login__form">
         <img src={logo} className="Header__logo Logo_auth" alt="Логотип Movie"/>
         <h2 className="Login__title">Рады видеть!</h2>
@@ -25,7 +25,7 @@ function Login() {
         </div>
       </form> 
     </div>
-  )
+  );
 }
   
 export default Login;

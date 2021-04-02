@@ -9,22 +9,18 @@
   min-width: 320px;
   width: 100%;
 }
-
 .Header__logo {
   margin-left: 14px;
   height: 38px;
   width: 38px;
 }
-
 .Header__logo:hover {
   cursor: pointer;
 }
-
 .Header__nav {
   align-items: center;
   display: table-cell;
 }
-
 .Header__link {
   color: #FFFFFF;
   font-size: 10px;
@@ -32,12 +28,10 @@
   line-height: 16px; 
   text-decoration: none;
 }
-
 .Header__link:hover {
   cursor: pointer;
   opacity: 0.6;
 }
-
 .Header__link-button {
   background: #3DDC84;
   border-radius: 3px;
@@ -53,12 +47,10 @@
   text-decoration: none;
   width: 54px;
 }
-
 .Header__link-button:hover {
   cursor: pointer;
   opacity: 0.6;
 }
-
 @media screen and (min-width: 482px) and (max-width: 1044px) {
   .Header__logo {
     margin-left: 30px;    
@@ -73,7 +65,6 @@
     padding: 9px 21.21px;
   }
 }
-
 @media screen and (min-width: 1045px) {
   .Header__logo {
     margin-left: 70px;

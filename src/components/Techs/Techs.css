@@ -6,14 +6,12 @@
   margin-right: 14px;
   margin-top: 70px;
 }
-
 .Techs__line {
   border-color: #000000;
   margin-top: 0;
   margin-bottom: 60px;
   width: 100%;
 }
-
 .Techs__subtitle {
   color: #FFFFFF;
   font-weight: 400;
@@ -23,7 +21,6 @@
   margin-bottom: 24px;
   text-align: center;
 }
-
 .Techs__description {
   align-self: center;
   color: #fff;
@@ -35,7 +32,6 @@
   padding: 0;
   text-align: center;  
 }
-
 .Techs-scroll {
   align-items: center;
   display: flex;
@@ -63,7 +59,6 @@
   padding: 0;
   text-align: center;
 }
-
 @media screen and (min-width: 482px) and (max-width: 1044px) {
    .Techs {
     background: #272727;
@@ -101,13 +96,12 @@
     margin-right: 0;
   }
 }
-
 @media screen and (min-width: 1045px) {
   .Techs {
     background: #272727;
-    padding-left: 70px;
-    padding-right: 70px;
     margin: 0;
+    padding-left: 70px;
+    padding-right: 70px;    
     padding-top: 100px;
   }
   .Techs__line {

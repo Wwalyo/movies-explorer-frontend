@@ -1,15 +1,15 @@
+import { Link } from 'react-router-dom';
+
 import './Register.css';
 import '../Login/Login.css';
 import '../Header/Header.css';
 import '../NotFound/NotFound.css';
-import { Link } from 'react-router-dom';
-import logo from '../../images/logo.svg';
 
+import logo from '../../images/logo.svg';
 
 function Register() {
   return (
-    <div class="Register">
-          
+    <div class="Register">          
       <form className="Login__form">
         <img src={logo} className="Header__logo Logo_auth" alt="Логотип Movie"/>
         <h2 className="Login__title">Добро пожаловать!</h2>
@@ -29,7 +29,7 @@ function Register() {
         </div>
       </form> 
     </div>
-  )
+  );
 }
   
 export default Register;

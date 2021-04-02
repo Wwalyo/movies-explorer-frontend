@@ -1,8 +1,8 @@
-import './App.css';
 import React from 'react';
 import { Router, Route, Redirect, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
+import './App.css';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
@@ -34,10 +34,8 @@ function App() {
               <Footer/>   
             </Route> 
             <Route exact path="*" component={NotFound} />
-          </Switch>
-          
-      </div>
-      
+          </Switch>          
+      </div>      
     </Router>
   );
 }

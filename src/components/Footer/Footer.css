@@ -45,7 +45,6 @@
   line-height: 15px;
   margin-bottom: 12px;
   text-decoration: none;
-
 }
 .Footer__link:last-of-type {
   margin-bottom: 0px;
@@ -58,7 +57,6 @@
   line-height: 15px;
   margin-bottom: 10px;
 }
-
 @media screen and (min-width: 482px) and (max-width: 1044px) {
   .Footer__title {
     font-size: 13px;
@@ -70,7 +68,6 @@
     margin-bottom: 20px;
     margin-left: 50px;
     margin-right: 50px;
-    /* width: 100%; */
   } 
   .Footer__main {
     align-items: baseline;
@@ -83,21 +80,18 @@
     justify-content: space-between;
     margin-right: 50px;
   }
-
   .Footer__link {
     font-size: 13px;
     line-height: 16px;
     margin-bottom: 0;
     margin-left: 20px;
-  }
-  
+  }  
   .Footer__copyright {
     font-size: 13px;
     line-height: 16px;
     margin-left: 50px;
   }
 }
-
 @media screen and (min-width: 1045px) {
   .Footer__title {
     font-size: 13px;
@@ -121,12 +115,10 @@
     justify-content: space-between;
     margin-right: 70px;
   }
-
   .Footer__link {
     margin-bottom: 0;
     margin-left: 20px;
-  }
-  
+  }  
   .Footer__copyright {
     font-size: 13px;
     line-height: 16px;

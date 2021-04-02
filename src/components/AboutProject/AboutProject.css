@@ -6,7 +6,6 @@
   margin-right: 14px;
   margin-top: 70px;
 }
-
 .AboutProject__title {
   color: #fff;
   font-weight: 400;
@@ -17,23 +16,19 @@
   margin-bottom: 28px;
   padding: 0;
 }
-
 .AboutProject__main {
   display: flex;
   flex-direction: column;
   margin-bottom: 60px;
 }
-
 .AboutProject__paragraph {
   display: flex;
   flex-direction: column;
   margin-bottom: 56px;
 }
-
 .AboutProject__paragraph:last-of-type{
   margin-bottom: 0;
 }
-
 .AboutProject__subtitle {
   color: #fff;
   font-weight: 400;
@@ -44,15 +39,12 @@
   margin-bottom: 16px;
   padding: 0;
 }
-
 .AboutProject__line {
   color: #DADADA;
   margin: 0;
   margin-bottom: 60px;
   width: 100%;
 }
-
-
 .AboutProject__description {
   color: #fff;
   font-weight: 400;
@@ -61,12 +53,10 @@
   margin: 0;
   padding: 0;
 }
-
 .AboutProject__demo-table {
   border-collapse: collapse;
   margin-bottom: 58px;
 }
-
 .AboutProject__demo-table_cell-one {
   background-color: #3DDC84;
   font-weight: 400;
@@ -76,7 +66,6 @@
   text-align: center;
   width: 100px;
 }
-
 .AboutProject__demo-table_cell-two {
   background-color: #303030;
   color: #FFFFFF;  
@@ -86,7 +75,6 @@
   line-height: 13px;
   text-align: center;
 }
-
 .AboutProject__demo-table_cell-three {
   color: #A0A0A0;
   font-weight: normal;
@@ -95,7 +83,6 @@
   line-height: 13px;
   text-align: center;
 }
-
 .AboutProject__demo-table_cell-four {
   color: #A0A0A0;
   font-weight: normal;
@@ -104,13 +91,12 @@
   line-height: 13px;
   text-align: center;
 }
-
 @media screen and (min-width: 482px) and (max-width: 1044px) {
   .AboutProject {
     background: #202020;
-    padding-left: 50px;
-    padding-right: 50px;
     margin: 0;
+    padding-left: 50px;
+    padding-right: 50px;    
     padding-top: 90px;
   }
   .AboutProject__title {
@@ -159,13 +145,12 @@
     line-height: 17px;
   }
 }
-
 @media screen and (min-width: 1045px) {
   .AboutProject {
     background: #202020;
-    padding-left: 70px;
-    padding-right: 70px;
     margin: 0;
+    padding-left: 70px;
+    padding-right: 70px;    
     padding-top: 110px;
   }
   .AboutProject__title {
@@ -213,5 +198,4 @@
   .AboutProject__demo-table {
     margin-bottom: 114px;
   }
-
 }

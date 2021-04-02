@@ -1,8 +1,6 @@
 import './AboutProject.css';
 
-
 function AboutProject() {
-
   return (
     <div className="AboutProject">
       <h3 className="AboutProject__title">О проекте</h3>
@@ -28,8 +26,7 @@ function AboutProject() {
             <td className="AboutProject__demo-table_cell-four">Front-end</td>
           </tr>
         </tbody>
-      </table>
-    
+      </table>    
     </div>
   );
 }
