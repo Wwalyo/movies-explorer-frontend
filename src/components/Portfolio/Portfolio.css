@@ -78,7 +78,8 @@
     margin-bottom: 40px;
   }
   .Portfolio__line {
-    background: #424242;
+    border: none;
+    border-bottom: 1px solid #E6E6E6;
   }
   .Portfolio__link {
     font-size: 30px;

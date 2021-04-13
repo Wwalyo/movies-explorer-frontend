@@ -7,7 +7,8 @@
   margin-top: 70px;
 }
 .Techs__line {
-  border-color: #000000;
+  border: none;
+  border-bottom: 1px solid #DADADA;
   margin-top: 0;
   margin-bottom: 60px;
   width: 100%;
@@ -34,20 +35,23 @@
 }
 .Techs-scroll {
   align-items: center;
+  align-self: center;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
-  align-self: center;
-  max-width: 178px;
-  margin-bottom: 60px;  
+  margin-bottom: 60px;
+  margin-right: -10px;
+  max-width: 188px;  
+  padding: 0;  
 }
 /* Сделать чтобы на средней величине красивоп переносилось на вторую строчку */
 .Techs-scroll__item {
-  display: inline-block;
+  align-items: center;
   background: #303030;
   border-radius: 10px;
   color: #FFFFFF;
+  display: flex;
+  justify-content: center;
   font-size: 12px;
   font-weight: 400;
   width: 84px;
@@ -56,6 +60,7 @@
   line-height: 15px;
   margin: 0;
   margin-bottom: 10px;
+  margin-right: 10px;
   padding: 0;
   text-align: center;
 }
@@ -83,14 +88,12 @@
     max-width: 460px;
   }
   .Techs-scroll {
-    max-width: 648px;
+    max-width: 376px;
     margin-bottom: 90px;    
   }
   .Techs-scroll__item {
     font-size: 12px;
     line-height: 15px;
-    margin-right: 10px;
-    margin-bottom: 0;
   }
   .Techs-scroll__item:last-of-type {
     margin-right: 0;
@@ -121,11 +124,12 @@
   }
   .Techs-scroll {
     max-width: 690px;
-    margin-bottom: 100px;    
+    margin-bottom: 100px; 
   }
   .Techs-scroll__item {
     font-size: 14px;
     line-height: 17px;
+    list-style-type: none;
     margin-bottom: 0;
     margin-right: 10px;
     height: 60px;

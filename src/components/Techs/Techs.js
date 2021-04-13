@@ -1,3 +1,5 @@
+import Title from '../Title';
+
 import './Techs.css';
 import '../AboutProject/AboutProject.css';
 
@@ -8,15 +10,15 @@ function Techs() {
       <hr className="Techs__line"></hr>
       <h2 className="Techs__subtitle">7 технологий</h2>
       <p className="Techs__description">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
-      <div className="Techs-scroll">
-        <p className="Techs-scroll__item">HTML</p>
-        <p className="Techs-scroll__item">CSS</p>
-        <p className="Techs-scroll__item">JS</p>
-        <p className="Techs-scroll__item">React</p>
-        <p className="Techs-scroll__item">Git</p>
-        <p className="Techs-scroll__item">Express.js</p>
-        <p className="Techs-scroll__item">mongoDB</p>
-      </div>
+      <ul className="Techs-scroll">
+        <li className="Techs-scroll__item">HTML</li>
+        <li className="Techs-scroll__item">CSS</li>
+        <li className="Techs-scroll__item">JS</li>
+        <li className="Techs-scroll__item">React</li>
+        <li className="Techs-scroll__item">Git</li>
+        <li className="Techs-scroll__item">Express.js</li>
+        <li className="Techs-scroll__item">mongoDB</li>
+      </ul>
     </div>
   );
 }

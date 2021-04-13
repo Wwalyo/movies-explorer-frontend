@@ -1,11 +1,13 @@
 .Footer {
   align-items: center;
   background: #202020;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   flex-direction: column;
   max-width: 1280px;
   min-width: 320px;
+  padding: 0 14px;
   width: 100%;
 }
 .Footer__title {
@@ -18,12 +20,11 @@
   text-align: center;
 }
 .Footer__line {
-  background: #424242;
-  color: #424242;
+  border: none;
+  border-bottom: 1px solid #424242;
   margin: 0;
   margin-bottom: 30px;
-  padding-left: 146px;
-  padding-right: 146px;  
+  width: 100%;
 }
 .Footer__main {
   align-items: center;
@@ -58,6 +59,9 @@
   margin-bottom: 10px;
 }
 @media screen and (min-width: 482px) and (max-width: 1044px) {
+  .Footer {
+    padding: 0 30px;
+  }
   .Footer__title {
     font-size: 13px;
     line-height: 16px;
@@ -93,17 +97,15 @@
   }
 }
 @media screen and (min-width: 1045px) {
+  .Footer {
+    padding: 0 70px;
+  }
   .Footer__title {
     font-size: 13px;
     line-height: 16px;
     margin-bottom: 20px;
     margin-top: 204px;
   }
-  .Footer__line {
-    margin-bottom: 20px;
-    padding-left: 570px;
-    padding-right: 570px;
-  } 
   .Footer__main {
     align-items: baseline;
     flex-direction: row-reverse;

@@ -10,6 +10,7 @@ import NotFound from '../NotFound/NotFound';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Profile from '../Profile/Profile';
+import Navigation from '../Navigation/Navigation';
 
 
 const history = createBrowserHistory();
@@ -34,7 +35,8 @@ function App() {
               <Footer/>   
             </Route> 
             <Route exact path="*" component={NotFound} />
-          </Switch>          
+          </Switch>
+          <Navigation/>          
       </div>      
     </Router>
   );
