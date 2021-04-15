@@ -1,6 +1,6 @@
 .Navigation {
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #202020;
   display: flex;
   height: 100%;
   justify-content: center;
@@ -15,13 +15,35 @@
 }
 
 .Navigation__container {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  align-items: center;
   box-sizing: border-box;
-  margin-top: 90px;
-  max-width: 430px;
-  padding: 34px 36px 36px;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+.Navigation__close-button {
+  color: #FFFFFF;
+  background: none;
+  height: 22px;
+  transform: rotate(-45deg);
+  width: 22px;
+}
+.Navigation__list {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.Navigation__item {
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  text-decoration: none;
 }

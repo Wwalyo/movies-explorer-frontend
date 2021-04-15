@@ -12,7 +12,6 @@ import Register from '../Register/Register';
 import Profile from '../Profile/Profile';
 import Navigation from '../Navigation/Navigation';
 
-
 const history = createBrowserHistory();
 
 function App() {
