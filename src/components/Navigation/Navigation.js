@@ -18,7 +18,7 @@ function Navigation() {
             <Link to="/saved-movies" className="Navigation__item">Сохраненные фильмы</Link>
           </li>
         </ul>
-        <div>
+        <div className="Navigation__profile">
           <span>Аккаунт</span>
           <img src={accountICon} className="" alt="Иконка Аккаунта"></img>
         </div>

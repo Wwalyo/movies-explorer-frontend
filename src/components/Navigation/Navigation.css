@@ -26,8 +26,11 @@
 .Navigation__close-button {
   color: #FFFFFF;
   background: none;
+  background-image: url("../../images/closeIcon.svg");
+  background-size: contain;
+  border: none;
   height: 22px;
-  transform: rotate(-45deg);
+  padding: 0;
   width: 22px;
 }
 .Navigation__list {
@@ -46,4 +49,9 @@
   line-height: 22px;
   text-align: center;
   text-decoration: none;
+}
+
+.Navigation__profile {
+  display: flex;
+  flex-direction: row;
 }
