@@ -19,8 +19,8 @@ function Navigation() {
           </li>
         </ul>
         <div className="Navigation__profile">
-          <span>Аккаунт</span>
-          <img src={accountICon} className="" alt="Иконка Аккаунта"></img>
+          <span className="Navigation__profile-acc">Аккаунт</span>
+          <button className="Navigation__profile-icon"></button>
         </div>
         </div>
               
