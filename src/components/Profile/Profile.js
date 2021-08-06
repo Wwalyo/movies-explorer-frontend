@@ -13,7 +13,7 @@ function Profile() {
         <img src={logo} className="Header__logo" alt="Логотип Movie"/>     
         <img src={burger} className="Burger" alt="открывающееся меню"/>
       </div>
-      <h2 className="Login__title">Привет, Андрей!</h2>
+      <h2 className="Profile__title">Привет, Андрей!</h2>
       <div className="Profile-content">
         <div className="Profile-content__cell">
           <p className="Profile-content__cell_name">Имя</p>

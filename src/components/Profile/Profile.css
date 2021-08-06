@@ -17,6 +17,18 @@
   padding-bottom: 16px;
   width: 100%;
 }
+
+.Profile__title {
+  align-self: start;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+}
+
 .Burger {
   margin-right: 14px;
 }
@@ -68,4 +80,38 @@
   line-height: 15px;
   margin-bottom: 40px;
   text-decoration: none;
+}
+
+@media screen and (min-width: 482px) and (max-width: 1044px) {
+  .Profile-content {
+    margin-bottom: 210px;
+    max-width: 410px;
+    
+  }
+  .Profile-content__cell_name {
+    margin-left: 0px;
+  }
+  .Profile-content__cell_value {
+    margin-right: 0px;
+  }
+  .Profile__line {
+    width: 410px;
+  }
+  .Profile__edit-link {
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .Profile__exit-link {
+    font-size: 13px;
+    line-height: 16px;
+    margin-bottom: 361px;
+  }
+  .Profile__title {
+    align-self: center;
+    margin-top: 216px;
+  }
+}
+
+@media screen and (min-width: 1045px) {
+
 }
