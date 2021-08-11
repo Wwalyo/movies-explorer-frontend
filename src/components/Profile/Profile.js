@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 
 import './Profile.css';
 import '../Header/Header.css';
-import '../Navigation/Navigation.css';
 
 import logo from '../../images/logo.svg';
 import burger from '../../images/burger.svg';
@@ -14,17 +13,17 @@ function Profile() {
         <img src={logo} className="Header__logo" alt="Логотип Movie"/>     
         <img src={burger} className="Burger" alt="открывающееся меню"/>
         <div className="Profile__Navigation">
-          <ul className="Profile__">
+          <ul className="Profile__films-list">
             <li>
-              <Link to="/movies" className="Navigation__item">Фильмы</Link>
+              <Link to="/movies" className="Profile__film">Фильмы</Link>
             </li>
             <li>
-              <Link to="/saved-movies" className="Navigation__item">Сохраненные фильмы</Link>
+              <Link to="/saved-movies" className="Profile__film">Сохраненные фильмы</Link>
             </li>
           </ul>
-          <div className="Navigation__profile">
-            <span className="Navigation__profile-acc">Аккаунт</span>
-            <button className="Navigation__profile-icon"></button>
+          <div className="Profile__links">
+            <span className="Profile__link">Аккаунт</span>
+            <button className="Profile__icon-link"></button>
           </div>
         </div>
       </div>
