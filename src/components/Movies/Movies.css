@@ -1,6 +1,9 @@
 .Movies {
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  margin-left: 14px;
+  margin-right: 14px;
+  width: 100%;
 }
