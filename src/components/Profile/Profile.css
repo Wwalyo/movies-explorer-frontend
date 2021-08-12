@@ -157,6 +157,7 @@
     padding: 0px;
     text-align: center;
     text-decoration: none;
+    white-space: nowrap;
   }
 
   .Profile__link {
@@ -201,7 +202,6 @@
   .Profile__exit-link {
     font-size: 13px;
     line-height: 16px;
-    margin-bottom: 361px;
   }
   .Profile__title {
     align-self: center;

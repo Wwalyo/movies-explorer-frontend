@@ -11,6 +11,7 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Profile from '../Profile/Profile';
 import Navigation from '../Navigation/Navigation';
+import Movies from '../Movies/Movies';
 
 const history = createBrowserHistory();
 
@@ -26,7 +27,10 @@ function App() {
               <Register />
             </Route>
             <Route path="/profile">
-              <Profile />
+              <Profile />              
+            </Route>
+            <Route path="/movies">
+              <Movies />
             </Route>
             <Route exact path="/">
               <Header />
