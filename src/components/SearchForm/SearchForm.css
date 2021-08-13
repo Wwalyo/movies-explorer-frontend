@@ -35,3 +35,25 @@
   width: 80px;
 }
 
+@media screen and (min-width: 482px) and (max-width: 1044px) {
+  .SearchForm {
+    height: 72px;
+    width: calc(100% - 60px);
+  }
+  .SearchForm__input {
+    font-size: 18px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (min-width: 1045px) {
+  .SearchForm {
+    height: 72px;
+    width: calc(100% - 140px);
+  }
+  .SearchForm__input {
+    font-size: 18px;
+    line-height: 20px;
+  }
+}
+

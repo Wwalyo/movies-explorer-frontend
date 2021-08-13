@@ -7,6 +7,8 @@ import '../Profile/Profile.css';
 import logo from '../../images/logo.svg';
 import burger from '../../images/burger.svg';
 import SearchForm from '../SearchForm/SearchForm';
+import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
+import MoviesCardList from '../MoviesCardList/MoviesCardList';
 
 function Profile() {
   return (
@@ -30,7 +32,9 @@ function Profile() {
         </div>
       </div>
       <SearchForm/>
-
+      <FilterCheckbox/>
+      <hr className="Movies__line"></hr>
+      <MoviesCardList/>
     </div>
   );
 }

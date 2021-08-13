@@ -1,3 +1,19 @@
 .MoviesCard {
   display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  object-fit: cover;
+  position: relative;
+}
+
+.MoviesCard__fav {
+  align-self: center;
+  background: #313131;  
+  background-image: url('../../images/inactivSavedIcon.svg');
+  background-size: cover;
+  border: none;
+  border-radius: 36px;
+  box-sizing: border-box;
+  height: 30px;
+  width: 30px;
 }

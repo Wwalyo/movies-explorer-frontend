@@ -7,3 +7,12 @@
   margin-right: 14px;
   width: 100%;
 }
+
+.Movies__line {
+  background: #AAAAAA;
+  border-bottom: none;
+  height: 1px;  
+  margin-top: 63px;
+  opacity: 0.2;
+  width: Calc(100% - 28px);
+}
