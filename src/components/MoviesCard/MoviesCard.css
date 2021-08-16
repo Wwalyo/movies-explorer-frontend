@@ -6,6 +6,40 @@
   position: relative;
 }
 
+.MoviesCard__header {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.MoviesCard__caption {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.MoviesCard__name {  
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  margin: 0;
+  margin-bottom: 9px;
+}
+
+.MoviesCard__duration {
+  align-items: center;
+  color: #8B8B8B;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+
+
 .MoviesCard__fav {
   align-self: center;
   background: #313131;  
