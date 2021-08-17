@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import './Movies.css';
 import '../Header/Header.css';
 import '../Profile/Profile.css';
+import Footer from '../Footer/Footer';
+
 
 import logo from '../../images/logo.svg';
 import burger from '../../images/burger.svg';
@@ -35,6 +37,8 @@ function Profile() {
       <FilterCheckbox/>
       <hr className="Movies__line"></hr>
       <MoviesCardList/>
+      <Footer/>
+
     </div>
   );
 }
