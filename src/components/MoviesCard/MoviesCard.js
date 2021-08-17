@@ -12,7 +12,7 @@ function MoviesCard({card, ...props}) {
           </div>
           <button type="button" className="MoviesCard__fav"></button>
         </div>        
-        <img src={card.pic} className="card__image" alt={card.name}/>
+        <img src={card.pic} className="Moviescard__image" alt={card.name}/>
       </div>
     )
   }
