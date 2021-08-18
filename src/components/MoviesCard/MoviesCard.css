@@ -1,7 +1,7 @@
 .MoviesCard {
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+  max-width: 364px;
   object-fit: cover;
   position: relative;
 }
@@ -53,8 +53,7 @@
 }
 
 .Moviescard__image {
-  min-width: 100%;
-  max-width: 123%;
+  max-width: 364px;
 }
 
 @media screen and (min-width: 482px) and (max-width: 1044px) {
@@ -63,6 +62,6 @@
 
 @media screen and (min-width: 1045px) {
   .Moviescard__image {
-    width: 123%;
+    width: 364px;
   }
 }
