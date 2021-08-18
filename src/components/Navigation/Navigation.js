@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import './Navigation.css';
-import accountICon from '../../images/accountIcon.svg';
 
 function Navigation() {
   return (

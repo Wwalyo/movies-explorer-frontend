@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import './Movies.css';
+import './SavedMovies.css';
 import '../Header/Header.css';
 import '../Profile/Profile.css';
 import Footer from '../Footer/Footer';
@@ -12,7 +12,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 
-function Movies() {
+function SavedMovies() {
   return (
     <div className="Movies">
       <div className="Profile__header">
@@ -36,12 +36,11 @@ function Movies() {
       <SearchForm/>
       <FilterCheckbox/>
       <hr className="Movies__line"></hr>
-      <MoviesCardList/>
-      <button className="Movies__continueButton">Ещё</button>
+      <MoviesCardList place="saved"/>
       <Footer/>
 
     </div>
   );
 }
   
-export default Movies;
+export default SavedMovies;

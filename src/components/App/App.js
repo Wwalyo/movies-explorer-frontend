@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, Redirect, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 import './App.css';
@@ -12,6 +12,7 @@ import Register from '../Register/Register';
 import Profile from '../Profile/Profile';
 import Navigation from '../Navigation/Navigation';
 import Movies from '../Movies/Movies';
+import SavedMovies from '../SavedMovies/SavedMovies';
 
 const history = createBrowserHistory();
 
@@ -31,6 +32,9 @@ function App() {
             </Route>
             <Route path="/movies">
               <Movies />
+            </Route>
+            <Route path="/saved-movies">
+              <SavedMovies />
             </Route>
             <Route exact path="/">
               <Header />

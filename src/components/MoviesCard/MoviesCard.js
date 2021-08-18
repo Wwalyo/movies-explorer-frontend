@@ -1,8 +1,11 @@
 import './MoviesCard.css';
 
-function MoviesCard({card, ...props}) {
-  console.log(card);
-  console.log(card.name);
+function MoviesCard({card, place, ...props}) {
+  const isLiked = card.like;
+  /*добавить isSaved*/
+  const cardLikeButtonClassName = (
+  `MoviesCard__fav ${isLiked ? 'MoviesCard__fav_isLiked' : ''}`
+  ); 
     return (
       <div className="MoviesCard">
         <div className="MoviesCard__header">
@@ -10,7 +13,7 @@ function MoviesCard({card, ...props}) {
             <h4 className="MoviesCard__name">{card.name}</h4>
             <span className="MoviesCard__duration">{card.duration}</span>
           </div>
-          <button type="button" className="MoviesCard__fav"></button>
+          <button type="button" className={cardLikeButtonClassName}></button>
         </div>        
         <img src={card.pic} className="Moviescard__image" alt={card.name}/>
       </div>

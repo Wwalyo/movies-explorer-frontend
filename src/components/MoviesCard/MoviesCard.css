@@ -52,6 +52,20 @@
   width: 30px;
 }
 
+.MoviesCard__fav:hover {
+  cursor: pointer;
+}
+
+.MoviesCard__fav_isLiked {
+  background: #3DDC84; 
+  background-image: url('../../images/activeSavedIcon.svg');
+}
+
+.MoviesCard__fav_toUnfavorite {
+  background: #313131;
+  background-image: url('../../images/deleteSavedFilm.svg');
+}
+
 .Moviescard__image {
   max-width: 364px;
 }

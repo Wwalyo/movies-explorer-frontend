@@ -10,7 +10,8 @@ const moviesItems = [
     id: "13",
     name: "33 слова о дизайне",
     duration: "1ч 47мин",
-    pic: image1    
+    pic: image1,
+    like: "true"    
   },
   {
     id: "14",
@@ -28,7 +29,8 @@ const moviesItems = [
     id: "16",
     name: "33 слова о дизайне",
     duration: "1ч 47мин",
-    pic: image4    
+    pic: image4,
+    like: "true"     
   },
   { id: "17",
     name: "33 слова о дизайне",

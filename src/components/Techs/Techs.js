@@ -1,5 +1,3 @@
-import Title from '../Title';
-
 import './Techs.css';
 import '../AboutProject/AboutProject.css';
 
