@@ -19,7 +19,7 @@
 }
 
 .Profile__title {
-  align-self: start;
+  align-self: center;
   color: #FFFFFF;
   font-weight: 500;
   font-size: 24px;
@@ -58,11 +58,9 @@
   width: 100%;
 }
 .Profile__line {
-  width: 260px;
   margin-top: 16px;
   margin-bottom: 17px;
-  margin-left: 30px;
-  margin-right: 30px;
+  width: Calc(100% - 60px);
 }
 .Profile-content__cell_name {
   margin: 0;

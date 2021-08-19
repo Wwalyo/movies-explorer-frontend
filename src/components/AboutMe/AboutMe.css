@@ -7,21 +7,22 @@
   margin-right: 14px;
   margin-top: 70px;
 }
-.Profile__photo {
+.Bio__photo {
+  align-self: center;
   border-radius: 10px;
   max-height: 352px;
   max-width: 292px;
   margin-bottom: 40px;
 }
-.Profile {
+.Bio {
   display: flex;
   flex-direction: column;
 }
-.Profile__info {
+.Bio__info {
   display: flex;
   flex-direction: column;
 }
-.Profile__subtitle {
+.Bio__subtitle {
   font-weight: 400;
   font-size: 30px;
   line-height: 36px;
@@ -30,14 +31,14 @@
   margin-bottom: 20px;
 }
 
-.Profile__clarification {
+.Bio__clarification {
   font-weight: 500;
   font-size: 11px;
   line-height: 16px;
   margin: 0;
   margin-bottom: 20px;
 }
-.Profile__description {
+.Bio__description {
   font-weight: 400;
   font-size: 11px;
   line-height: 16px;
@@ -45,14 +46,14 @@
   margin-bottom: 40px;
   text-overflow: ellipsis;
 }
-.Profile__links {
+.Bio__links {
   display: flex;
   flex-direction: row;
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-.Profile__link {
+.Bio__link {
   color:#FFFFFF;  
   font-weight: 500;
   font-size: 14px;
@@ -60,7 +61,7 @@
   margin-right: 26px;  
   text-decoration: none; 
 }
-.Profile__link:hover {
+.Bio__link:hover {
   cursor: pointer;
   opacity: 0.6;
 }
@@ -72,29 +73,29 @@
     padding-right: 50px;    
     padding-top: 90px;
   }
-  .Profile {
+  .Bio {
     flex-direction: row-reverse;
     justify-content: space-between;
   }
-  .Profile__info {
+  .Bio__info {
     justify-content: space-between;
     max-width: 364px;
     max-height: 292px;
   }
-  .Profile__photo {
+  .Bio__photo {
     margin-bottom: 0;
     max-height: 307px;
   }
-  .Profile__subtitle {
+  .Bio__subtitle {
     font-size: 40px;
     line-height: 40px;
     margin-bottom: 16px;
   }
-  .Profile__clarification {
+  .Bio__clarification {
     font-size: 12px;
     line-height: 18px;
   }
-  .Profile__description {
+  .Bio__description {
     font-size: 12px;
     line-height: 18px;
     margin-bottom: 87px;
@@ -109,29 +110,29 @@
     padding-right: 70px;    
     padding-top: 110px;
   }
-  .Profile {
+  .Bio {
     flex-direction: row-reverse;
     justify-content: space-between;
   }
-  .Profile__info {
+  .Bio__info {
     justify-content: space-between;
     max-width: 600px;
     max-height: 292px;
   }  
-  .Profile__photo {
+  .Bio__photo {
     margin-bottom: 0;
     max-height: 327px;
   }
-  .Profile__subtitle {
+  .Bio__subtitle {
     font-size: 50px;
     line-height: 58px;
     margin-bottom: 16px;
   }
-  .Profile__clarification {
+  .Bio__clarification {
     font-size: 18px;
     line-height: 20px;
   }
-  .Profile__description {
+  .Bio__description {
     font-size: 14px;
     line-height: 22px;
     margin-bottom: 87px;
