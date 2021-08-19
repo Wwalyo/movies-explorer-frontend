@@ -14,7 +14,10 @@ function AboutMe() {
           <div className="Profile__info">
             <h2 className="Profile__subtitle">Алена</h2>
             <p className="Profile__clarification">Фронтенд-разработчик, 31 год</p>
-            <p className="Profile__description">Родилась и живу в городе Санкт-Петербург, ававпвапапапипа ип ртпаавплра проылаповылдап оаылдвповылдоыл дмофы лдмолфыдвао фыдл аоыфлдаоылдвао</p>
+            <p className="Profile__description">Родилась и живу в городе Санкт-Петербург. Когда я училась в 9м классе - очень хотела пойти 
+            учиться на программиста, но в колледж не поступила, а к 11 классу школы моя уверенность в том, что я смогу - улетучилась окончательно. 
+            Поэтому, можно сказать, что обучение сейчас Фронтенд-разработке - это спонтанное решение, проучившись год, могу сказать: 
+            правильное. Если даже сложится так, что разработка не станет моей профессией, точно останется хобби.  </p>
             <ul className="Profile__links">
               <li> <a href="https://www.facebook.com/alyona.19892209" className="Profile__link">Facebook</a> </li>
               <li> <a href="https://github.com/Wwalyo" className="Profile__link">Github</a> </li>
