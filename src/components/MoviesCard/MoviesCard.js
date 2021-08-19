@@ -2,10 +2,9 @@ import './MoviesCard.css';
 
 function MoviesCard({card, place, ...props}) {
   const isLiked = card.like;
-  let inSavedMov
   const cardLikeButtonClassName = (
   `MoviesCard__fav ${isLiked ? 'MoviesCard__fav_isLiked' : ''}`
-  ); 
+  );
     return (
       <div className="MoviesCard">
         <div className="MoviesCard__header">
