@@ -34,6 +34,10 @@
   width: 80px;
 }
 
+.SearchForm__button:hover {
+  cursor: pointer;
+}
+
 @media screen and (min-width: 482px) and (max-width: 1044px) {
   .SearchForm {
     height: 72px;

@@ -2,9 +2,12 @@ import './MoviesCard.css';
 
 function MoviesCard({card, place, ...props}) {
   const isLiked = card.like;
-  const cardLikeButtonClassName = (
+  let cardLikeButtonClassName = (
   `MoviesCard__fav ${isLiked ? 'MoviesCard__fav_isLiked' : ''}`
   );
+  if (place === "saved" && isLiked) {
+    cardLikeButtonClassName = ' MoviesCard__fav MoviesCard__fav_toUnfavorite'
+  } 
     return (
       <div className="MoviesCard">
         <div className="MoviesCard__header">

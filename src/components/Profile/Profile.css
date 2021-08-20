@@ -33,10 +33,22 @@
   margin-right: 14px;
 }
 
+.Burger:hover {
+  cursor: pointer;
+}
+
 .Profile__Navigation {
   display: none;
   pointer-events: none; 
   visibility: hidden; 
+}
+
+.Profile__links {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .Profile-content {
@@ -88,6 +100,10 @@
 }
 
 @media screen and (min-width: 482px) and (max-width: 1044px) {
+  .Burger {
+    margin-right: 30px;
+  }
+  
   .Profile-content {
     margin-bottom: 210px;
     max-width: 410px;
@@ -133,6 +149,7 @@
     margin-right: 70px;
     pointer-events: auto; 
     visibility: visible; 
+    width: 100%;
   }
 
   .Profile__films-list {
@@ -141,7 +158,6 @@
     flex-direction: row;
     justify-content: space-between;
     list-style-type: none;
-    margin-right: 746px;
     padding: 0px;
   }
 
