@@ -35,6 +35,10 @@
   width: 240px;
 }
 
+.Movies__continueButton:hover { 
+  cursor: pointer;
+}
+
 @media screen and (min-width: 482px) and (max-width: 1044px) {
   .Movies__line {
     width: Calc(100% - 60px);

@@ -46,6 +46,11 @@
   margin-top: 100px;
   padding: 0;
 }
+
+.Navigation__list-item {
+  margin-bottom: 24px;
+}
+
 .Navigation__item {
   color: #FFFFFF;
   font-weight: 500;
@@ -97,10 +102,18 @@
     max-width: 520px;
   }
 
+  .Navigation__list-item {
+    margin-bottom: 28px;
+  }
+
 }
 
 @media screen and (min-width: 1045px) {
   .Navigation {
     max-width: 520px;
+  }
+
+  .Navigation__list-item {
+    margin-bottom: 28px;
   }
 }

@@ -19,7 +19,7 @@
   flex-direction: column;
 }
 .Bio__info {
-  display: flex;
+  display: block;
   flex-direction: column;
 }
 .Bio__subtitle {
@@ -99,8 +99,8 @@
   .Bio__description {
     font-size: 12px;
     line-height: 18px;
-    margin-bottom: 87px;
     max-height: 180px;
+    margin-right: 49px;
   }
 }
 @media screen and (min-width: 1045px) {
@@ -136,7 +136,6 @@
   .Bio__description {
     font-size: 14px;
     line-height: 22px;
-    margin-bottom: 87px;
     max-height: 180px;
   }
 }
