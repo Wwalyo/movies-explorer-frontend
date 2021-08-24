@@ -32,6 +32,11 @@
   margin-bottom: 30px;
   text-decoration: none;
 }
+
+.NotFound__link:hover {
+  cursor: pointer;
+  opacity: 0.3;
+}
 @media screen and (min-width: 482px) and (max-width: 1044px) {
   .NotFound__title {
     font-size: 140px;

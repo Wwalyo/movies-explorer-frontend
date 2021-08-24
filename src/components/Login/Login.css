@@ -72,8 +72,12 @@
   font-size: 12px;
   height: 45px;
   line-height: 15px;  
-  margin-top: 267px;
+  margin-top: 157px;
   width: 260px;
+}
+.Login__submit:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 .Login__hint {
   align-items: baseline;

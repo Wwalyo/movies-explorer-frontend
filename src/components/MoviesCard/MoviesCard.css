@@ -1,9 +1,6 @@
 .MoviesCard {
   display: flex;
   flex-direction: column;
-  max-width: 364px;
-  object-fit: cover;
-  position: relative;
 }
 
 .MoviesCard__header {
@@ -54,6 +51,7 @@
 
 .MoviesCard__fav:hover {
   cursor: pointer;
+  opacity: 0.8;
 }
 
 .MoviesCard__fav_isLiked {
@@ -61,21 +59,23 @@
   background-image: url('../../images/activeSavedIcon.svg');
 }
 
+.MoviesCard__fav_isLiked:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .MoviesCard__fav_toUnfavorite {
   background: #313131;
   background-image: url('../../images/deleteSavedFilm.svg');
 }
 
-.Moviescard__image {
-  max-width: 364px;
+.MoviesCard__fav_toUnfavorite:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
-@media screen and (min-width: 482px) and (max-width: 1044px) {
-
+.Moviescard__image:hover {
+  cursor: pointer;
 }
 
-@media screen and (min-width: 1045px) {
-  .Moviescard__image {
-    width: 364px;
-  }
-}
+

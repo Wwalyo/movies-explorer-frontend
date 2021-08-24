@@ -7,6 +7,11 @@
   max-width: 1280px;
   width: 100%;    
 }
+
+.Profile_inactive {
+  pointer-events: none;
+}
+
 .Profile__header {
   align-items: center;
   display: flex;
@@ -35,6 +40,7 @@
 
 .Burger:hover {
   cursor: pointer;
+  opacity: 0.8;
 }
 
 .Profile__Navigation {
@@ -49,6 +55,16 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+.Profile__link:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.Profile__icon-link:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 .Profile-content {
@@ -90,6 +106,10 @@
   margin-bottom: 16px;
   text-decoration: none;
 }
+.Profile__edit-link:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
 .Profile__exit-link {
   color: #EE3465;
   font-weight: 500;
@@ -97,6 +117,10 @@
   line-height: 15px;
   margin-bottom: 40px;
   text-decoration: none;
+}
+.Profile__exit-link:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 @media screen and (min-width: 482px) and (max-width: 1044px) {
@@ -172,6 +196,11 @@
     text-align: center;
     text-decoration: none;
     white-space: nowrap;
+  }
+
+  .Profile__film:hover {
+    cursor: pointer;
+    opacity: 0.8;
   }
 
   .Profile__link {

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 
 import './Profile.css';
 import '../Header/Header.css';
@@ -6,12 +7,15 @@ import '../Header/Header.css';
 import logo from '../../images/logo.svg';
 import burger from '../../images/burger.svg';
 
-function Profile() {
+function Profile({onOpenMenu, isMenuOpen}) {
+  const ProfileClassName = classNames('Profile', {
+    'Profile_inactive': isMenuOpen,
+  });
   return (
-    <div className="Profile">
+    <div className={ProfileClassName}>
       <div className="Profile__header">
         <img src={logo} className="Header__logo" alt="Логотип Movie"/>     
-        <img src={burger} className="Burger" alt="открывающееся меню"/>
+        <img src={burger} className="Burger" onClick={onOpenMenu} alt="открывающееся меню"/>
         <div className="Profile__Navigation">
           <ul className="Profile__films-list">
             <li>

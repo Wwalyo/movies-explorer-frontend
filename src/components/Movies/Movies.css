@@ -37,6 +37,7 @@
 
 .Movies__continueButton:hover { 
   cursor: pointer;
+  opacity: 0.8;
 }
 
 @media screen and (min-width: 482px) and (max-width: 1044px) {

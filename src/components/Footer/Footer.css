@@ -47,6 +47,12 @@
   margin-bottom: 12px;
   text-decoration: none;
 }
+
+.Footer__link:hover {
+  cursor: pointer;
+  opacity: 0.3;
+}
+
 .Footer__link:last-of-type {
   margin-bottom: 0px;
 }

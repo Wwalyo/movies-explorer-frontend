@@ -14,6 +14,12 @@
   width: 100%;
 }
 
+.Navigation_open {
+  visibility: visible; 
+  opacity: 1;
+  pointer-events:visible;
+}
+
 .Navigation__container {
   align-items: center;
   box-sizing: border-box;
@@ -36,11 +42,16 @@
   padding: 0;
   width: 22px;
 }
+
+.Navigation__close-button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .Navigation__list {
   align-items: center;
   display: flex;
-  flex-direction: column;
-  
+  flex-direction: column;  
   list-style-type: none;
   margin: 0;
   margin-top: 100px;
@@ -50,6 +61,12 @@
 .Navigation__list-item {
   margin-bottom: 24px;
 }
+
+.Navigation__list-item:hover { 
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 
 .Navigation__item {
   color: #FFFFFF;
@@ -61,12 +78,15 @@
   text-decoration: none;
 }
 
-/*сделать так, чтобы когда на элемент списка наводишь мышку - появлялось нижнее подчеркивание*/
-/* .Navigation__item:last-of-type {
+.Navigation__item:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
 
+.Navigation__list-item:last-of-type {
   margin-bottom: 0;
   text-decoration: underline;
-} */
+} 
 
 .Navigation__profile {
   align-items: center;
@@ -74,7 +94,13 @@
   flex-direction: row;
   justify-content: space-between;
   margin-top: 444px;
-  max-width: 100px;
+  margin-bottom: 48px;
+  max-width: 100px;  
+}
+
+.Navigation__profile:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 .Navigation__profile-acc {
@@ -83,6 +109,11 @@
   font-size: 14px;
   line-height: 16px;
   margin-right: 17px;
+}
+
+.Navigation__profile-acc:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 .Navigation__profile-icon {
@@ -95,6 +126,11 @@
   height: 30px;
   padding: 0;
   width: 26px;
+}
+
+.Navigation__profile-icon:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 @media screen and (min-width: 482px) and (max-width: 1044px) {

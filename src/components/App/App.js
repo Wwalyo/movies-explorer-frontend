@@ -17,6 +17,17 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 const history = createBrowserHistory();
 
 function App() {
+
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const handleMenuClick = () => {
+    setIsMenuOpen(true);
+  }
+
+  const handleCloseMenuClick = () => {
+    setIsMenuOpen(false);
+  }
+
   return (
     <Router history={history}>
       <div className="App">
@@ -28,7 +39,7 @@ function App() {
               <Register />
             </Route>
             <Route path="/profile">
-              <Profile />              
+              <Profile onOpenMenu={handleMenuClick} isMenuOpen={isMenuOpen} />              
             </Route>
             <Route path="/movies">
               <Movies />
@@ -43,7 +54,7 @@ function App() {
             </Route> 
             <Route exact path="*" component={NotFound} />
           </Switch>
-          <Navigation/>          
+          <Navigation onCloseMenu={handleCloseMenuClick} isMenuOpen={isMenuOpen} />          
       </div>      
     </Router>
   );
