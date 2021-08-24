@@ -28,6 +28,7 @@
 }
 .AboutProject__paragraph:last-of-type{
   margin-bottom: 0;
+  margin-right: 0;
 }
 .AboutProject__subtitle {
   color: #fff;
@@ -113,6 +114,9 @@
     justify-content: space-between;
     margin-bottom: 93px;
   }
+  .AboutProject__paragraph {
+    margin-right: 30px;
+  }
   .AboutProject__subtitle {
     font-size: 20px;
     line-height: 24px; 
@@ -165,6 +169,7 @@
     margin-bottom: 93px;
   }
   .AboutProject__paragraph {
+    margin-right: 30px;
     max-width: 550px;
   }
   .AboutProject__subtitle {

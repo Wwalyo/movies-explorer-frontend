@@ -21,6 +21,7 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const handleMenuClick = () => {
+    console.log("клик клик")
     setIsMenuOpen(true);
   }
 
@@ -42,10 +43,10 @@ function App() {
               <Profile onOpenMenu={handleMenuClick} isMenuOpen={isMenuOpen} />              
             </Route>
             <Route path="/movies">
-              <Movies />
+              <Movies onOpenMenu={handleMenuClick} />
             </Route>
             <Route path="/saved-movies">
-              <SavedMovies />
+              <SavedMovies onOpenMenu={handleMenuClick} />
             </Route>
             <Route exact path="/">
               <Header />

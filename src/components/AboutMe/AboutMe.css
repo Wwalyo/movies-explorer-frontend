@@ -84,6 +84,7 @@
     max-height: 292px;
   }
   .Bio__photo {
+    margin-left: 49px;
     margin-bottom: 0;
     max-height: 307px;
   }
@@ -103,6 +104,12 @@
     margin-right: 49px;
   }
 }
+
+@media screen and (min-width: 560px) and (max-width: 1044px) {
+
+
+}
+
 @media screen and (min-width: 1045px) {
   .AboutMe {
     background: #202020;

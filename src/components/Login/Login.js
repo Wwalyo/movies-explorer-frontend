@@ -8,7 +8,7 @@ import logo from '../../images/logo.svg';
 
 function Login() {
   return (
-    <div class="Login">          
+    <div className="Login">          
       <form className="Login__form">
         <img src={logo} className="Header__logo Logo_auth" alt="Логотип Movie"/>
         <h2 className="Login__title">Рады видеть!</h2>

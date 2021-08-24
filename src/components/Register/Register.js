@@ -22,7 +22,7 @@ function Register() {
         <h6 className="Login__input-name">Пароль</h6>
         <input type="password" className="Login__input Login__password" name="password-input" required/>
         <span className='Login__input-error'>Что-то пошло не так...</span>
-        <button type="submit" className="Login__submit">Зарегистрироваться</button>
+        <button type="submit" className="Login__submit Login__submit_reg">Зарегистрироваться</button>
         <div className="Login__hint">
           <p className="Login__hint-text">Уже зарегистрированы?</p>
           <Link to="/sign-in" className="NotFound__link">Войти</Link>

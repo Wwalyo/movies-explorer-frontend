@@ -12,12 +12,12 @@ import SearchForm from '../SearchForm/SearchForm';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 
-function Movies() {
+function Movies({onOpenMenu}) {
   return (
     <div className="Movies">
       <div className="Profile__header">
         <img src={logo} className="Header__logo" alt="Логотип Movie"/>     
-        <img src={burger} className="Burger" alt="открывающееся меню"/>
+        <img src={burger} className="Burger" onClick={onOpenMenu} alt="открывающееся меню"/>
         <div className="Profile__Navigation">
           <ul className="Profile__films-list">
             <li>

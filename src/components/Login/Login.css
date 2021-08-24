@@ -72,8 +72,11 @@
   font-size: 12px;
   height: 45px;
   line-height: 15px;  
-  margin-top: 157px;
+  margin-top: 267px;
   width: 260px;
+}
+.Login__submit_reg {
+  margin-top: 157px;
 }
 .Login__submit:hover {
   cursor: pointer;
@@ -122,6 +125,9 @@
     font-size: 14px;
     line-height: 17px;
   }
+  .Login__submit_reg {
+    margin-top: 69px;
+  }
 }
 @media screen and (min-width: 1045px) {
   .Login {
@@ -151,5 +157,8 @@
   .Login__hint-text {
     font-size: 14px;
     line-height: 17px;
+  }
+  .Login__submit_reg {
+    margin-top: 69px;
   }
 }
