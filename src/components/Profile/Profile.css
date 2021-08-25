@@ -1,0 +1,253 @@
+.Profile {
+  align-items: center;
+  background: #202020;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1280px;
+  width: 100%;    
+}
+
+.Profile_inactive {
+  pointer-events: none;
+}
+
+.Profile__header {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  width: 100%;
+}
+
+.Profile__title {
+  align-self: center;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+}
+
+.Burger {
+  margin-right: 14px;
+}
+
+.Burger:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.Profile__Navigation {
+  display: none;
+  pointer-events: none; 
+  visibility: hidden; 
+}
+
+.Profile__links {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Profile__link:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.Profile__icon-link:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.Profile-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 379px;
+  width: 100%;
+}
+.Profile-content__cell {
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  font-weight: 500;
+  font-size: 11px;
+  justify-content: space-between;
+  line-height: 13px;   
+  width: 100%;
+}
+.Profile__line {
+  margin-top: 16px;
+  margin-bottom: 17px;
+  width: Calc(100% - 60px);
+}
+.Profile-content__cell_name {
+  margin: 0;
+  margin-left: 30px;
+}
+.Profile-content__cell_value {
+  margin: 0;
+  margin-right: 30px;
+}
+.Profile__edit-link {
+  color: #FFFFFF;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  margin-bottom: 16px;
+  text-decoration: none;
+}
+.Profile__edit-link:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.Profile__exit-link {
+  color: #EE3465;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  margin-bottom: 40px;
+  text-decoration: none;
+}
+.Profile__exit-link:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+@media screen and (min-width: 482px) and (max-width: 1044px) {
+  .Burger {
+    margin-right: 30px;
+  }
+  
+  .Profile-content {
+    margin-bottom: 210px;
+    max-width: 410px;
+    
+  }
+  .Profile-content__cell_name {
+    margin-left: 0px;
+  }
+  .Profile-content__cell_value {
+    margin-right: 0px;
+  }
+  .Profile__line {
+    width: 410px;
+  }
+  .Profile__edit-link {
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .Profile__exit-link {
+    font-size: 13px;
+    line-height: 16px;
+    margin-bottom: 361px;
+  }
+  .Profile__title {
+    align-self: center;
+    margin-top: 216px;
+  }
+}
+
+@media screen and (min-width: 1045px) {
+  .Burger {
+    display: none;
+    pointer-events: none; 
+    visibility: hidden; 
+  }
+
+  .Profile__Navigation {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 28px;
+    margin-right: 70px;
+    pointer-events: auto; 
+    visibility: visible; 
+    width: 100%;
+  }
+
+  .Profile__films-list {
+    align-items: center;    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0px;
+  }
+
+  .Profile__film {
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    margin-left: 16px;
+    margin-bottom: 24px;
+    padding: 0px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .Profile__film:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  .Profile__link {
+    align-self: center;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    margin-right: 17px;
+  }
+
+  .Profile__icon-link {
+    background-color: #313131;
+    background-image: url("../../images/accountIcon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 4px;
+    height: 30px;
+    padding: 0;
+    width: 26px;
+  }
+  .Profile-content {
+    margin-bottom: 220px;
+    max-width: 410px;
+    
+  }
+  .Profile-content__cell_name {
+    margin-left: 0px;
+  }
+  .Profile-content__cell_value {
+    margin-right: 0px;
+  }
+  .Profile__line {
+    width: 410px;
+  }
+  .Profile__edit-link {
+    
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .Profile__exit-link {
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .Profile__title {
+    align-self: center;
+    margin-top: 74px;
+  }
+}

@@ -1,0 +1,155 @@
+.Navigation {
+  align-items: center;
+  background-color: #202020;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  visibility: hidden; 
+  opacity: 0;
+  transition: visibility .2s, opacity 1s linear;
+  width: 100%;
+}
+
+.Navigation_open {
+  visibility: visible; 
+  opacity: 1;
+  pointer-events:visible;
+}
+
+.Navigation__container {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  width: 100%;
+}
+.Navigation__close-button {
+  align-self: flex-end;
+  color: #FFFFFF;
+  background: none;
+  background-image: url("../../images/closeIcon.svg");
+  background-size: contain;
+  border: none;
+  height: 22px;
+  margin-right: 15px;
+  margin-top: 15px;
+  padding: 0;
+  width: 22px;
+}
+
+.Navigation__close-button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.Navigation__list {
+  align-items: center;
+  display: flex;
+  flex-direction: column;  
+  list-style-type: none;
+  margin: 0;
+  margin-top: 100px;
+  padding: 0;
+}
+
+.Navigation__list-item {
+  margin-bottom: 24px;
+}
+
+.Navigation__list-item:hover { 
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+
+.Navigation__item {
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 24px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.Navigation__item:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.Navigation__list-item:last-of-type {
+  margin-bottom: 0;
+  text-decoration: underline;
+} 
+
+.Navigation__profile {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 444px;
+  margin-bottom: 48px;
+  max-width: 100px;  
+}
+
+.Navigation__profile:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.Navigation__profile-acc {
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  margin-right: 17px;
+}
+
+.Navigation__profile-acc:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.Navigation__profile-icon {
+  background-color: #313131;
+  background-image: url("../../images/accountIcon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 4px;
+  height: 30px;
+  padding: 0;
+  width: 26px;
+}
+
+.Navigation__profile-icon:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+@media screen and (min-width: 482px) and (max-width: 1044px) {
+  .Navigation {
+    max-width: 520px;
+  }
+
+  .Navigation__list-item {
+    margin-bottom: 28px;
+  }
+
+}
+
+@media screen and (min-width: 1045px) {
+  .Navigation {
+    max-width: 520px;
+  }
+
+  .Navigation__list-item {
+    margin-bottom: 28px;
+  }
+}

@@ -1,5 +1,109 @@
-.Promo {
-  background: #202020;
-  height: 570px;
-  width: 320px;
+.Promo {  
+  align-items: center;
+  background: #073042;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 320px;
+  max-width: 1280px; 
+}
+.Promo__image {
+  height: 206px;
+  margin-top: 70px;
+  width: 210px;
+}
+.Promo__info {
+  align-items: center;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+}
+.Promo__header {
+  color: #FFFFFF;
+  line-height: 38px;
+  font-size: 30px;
+  font-weight: 400;
+  margin-top: 44px;
+  margin-bottom: 24px;
+  max-width: 680px;
+  padding: 0;
+  text-align: center;
+}
+.Promo__caption {
+  color: #FFFFFF;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  margin: 0;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+  padding: 0;
+  text-align: center;
+  width: 260px;
+}
+.Promo__button {
+  background: none;
+  border: 1px solid #FFFFFF;
+  box-sizing: border-box;
+  border-radius: 3px;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  opacity: 0.6;
+  padding: 0;
+  height: 36px;
+  margin-top: 80px;
+  margin-bottom: 30px;
+  width: 129px;
+}
+.Promo__button:hover {
+  cursor: pointer;
+  opacity: 0.3;
+}
+@media screen and (min-width: 482px) and (max-width: 1044px) {
+  .Promo__image {
+    height: 310px;
+    margin-top: 140px;
+    width: 304px;
+  }
+  .Promo__header {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  .Promo__button {
+    margin-bottom: 76px;
+  }
+}
+@media screen and (min-width: 1045px) {
+  .Promo{
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+  }
+  .Promo__image {
+    height: 310px;
+    margin-top: 75px;    
+    margin-right: 70px;
+    width: 304px;
+  }
+  .Promo__info {
+    align-items: flex-start;
+    margin-top: 75px;
+    margin-left: 70px;
+  }
+  .Promo__header {
+    font-size: 50px;
+    line-height: 58px;
+    margin: 0;
+    margin-bottom: 36px;    
+    text-align: start;   
+  }
+  .Promo__caption {
+    text-align: start;  
+  }
+  .Promo__button {
+    margin-bottom: 75px;
+    margin-top: 146px;
+  }
 }

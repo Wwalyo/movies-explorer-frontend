@@ -1,0 +1,207 @@
+.AboutProject {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  margin-left: 14px;
+  margin-right: 14px;
+  margin-top: 70px;
+}
+.AboutProject__title {
+  color: #fff;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: -0.04em;
+  line-height: 22px;
+  margin: 0;
+  margin-bottom: 28px;
+  padding: 0;
+}
+.AboutProject__main {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+.AboutProject__paragraph {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 56px;
+}
+.AboutProject__paragraph:last-of-type{
+  margin-bottom: 0;
+  margin-right: 0;
+}
+.AboutProject__subtitle {
+  color: #fff;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: -0.04em;
+  line-height: 22px;
+  margin: 0;
+  margin-bottom: 16px;
+  padding: 0;
+}
+.AboutProject__line {
+  border: none;
+  border-bottom: 1px solid #DADADA;
+  margin: 0;
+  margin-bottom: 60px;
+  width: 100%;
+}
+.AboutProject__description {
+  color: #fff;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16px;
+  margin: 0;
+  padding: 0;
+}
+.AboutProject__demo-table {
+  border-collapse: collapse;
+  margin-bottom: 58px;
+}
+.AboutProject__demo-table_cell-one {
+  background-color: #3DDC84;
+  font-weight: 400;
+  font-size: 11px;
+  height: 35px;
+  line-height: 13px;
+  text-align: center;
+  width: 100px;
+}
+.AboutProject__demo-table_cell-two {
+  background-color: #303030;
+  color: #FFFFFF;  
+  font-weight: 400;
+  font-size: 11px;
+  height: 35px;
+  line-height: 13px;
+  text-align: center;
+}
+.AboutProject__demo-table_cell-three {
+  color: #A0A0A0;
+  font-weight: normal;
+  font-size: 11px;
+  height: 35px;
+  line-height: 13px;
+  text-align: center;
+}
+.AboutProject__demo-table_cell-four {
+  color: #A0A0A0;
+  font-weight: normal;
+  font-size: 11px;
+  height: 35px;
+  line-height: 13px;
+  text-align: center;
+}
+@media screen and (min-width: 482px) and (max-width: 1044px) {
+  .AboutProject {
+    background: #202020;
+    margin: 0;
+    padding-left: 50px;
+    padding-right: 50px;    
+    padding-top: 90px;
+  }
+  .AboutProject__title {
+    font-size: 22px;
+    line-height: 27px;
+    margin-bottom: 23px;
+  }
+  .AboutProject__line {
+    margin-bottom: 70px;
+  }
+  .AboutProject__main {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 93px;
+  }
+  .AboutProject__paragraph {
+    margin-right: 30px;
+  }
+  .AboutProject__subtitle {
+    font-size: 20px;
+    line-height: 24px; 
+  }
+  .AboutProject__description {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .AboutProject__demo-table {
+    margin-bottom: 85px;
+  }
+  .AboutProject__demo-table_cell-one {
+    height: 36px;
+    font-size: 14px;
+    line-height: 17px;
+    width: 140px;   
+  }
+  .AboutProject__demo-table_cell-two {
+    height: 36px;
+    font-size: 14px;
+    line-height: 17px;    
+  }
+  .AboutProject__demo-table_cell-three {
+    height: 36px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  .AboutProject__demo-table_cell-four {
+    height: 36px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+@media screen and (min-width: 1045px) {
+  .AboutProject {
+    background: #202020;
+    margin: 0;
+    padding-left: 70px;
+    padding-right: 70px;    
+    padding-top: 110px;
+  }
+  .AboutProject__title {
+    font-size: 22px;
+    line-height: 27px;
+    margin-bottom: 23px;
+  }
+  .AboutProject__main {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 93px;
+  }
+  .AboutProject__paragraph {
+    margin-right: 30px;
+    max-width: 550px;
+  }
+  .AboutProject__subtitle {
+    font-size: 20px;
+    line-height: 24px; 
+  }
+  .AboutProject__description {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .AboutProject__demo-table_cell-one {
+    height: 36px;
+    font-size: 14px;
+    line-height: 17px;
+    width: 228px;   
+  }
+  .AboutProject__demo-table_cell-two {
+    height: 36px;
+    font-size: 14px;
+    line-height: 17px;    
+  }
+  .AboutProject__demo-table_cell-three {
+    height: 36px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  .AboutProject__demo-table_cell-four {
+    height: 36px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  .AboutProject__demo-table {
+    margin-bottom: 114px;
+  }
+}

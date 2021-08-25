@@ -1,0 +1,71 @@
+.SearchForm {
+  align-items: center;
+  border: 1.5px solid #AAAAAA;
+  box-sizing: border-box;
+  border-radius: 8px; 
+  display: flex;
+  flex-direction: row;
+  height: 56px;
+  justify-content: space-between;
+  margin-top: 50px;
+  width: calc(100% - 28px);
+}
+
+.SearchForm__input {
+  background-color: #202020;
+  border: none;
+  color: #FFFFFF;
+  font-size: 16px;
+  line-height: 16px;
+  margin-left: 12px;
+}
+
+.SearchForm__button {
+  color: #FFFFFF;
+  background: #4285F4;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 14px;
+  height: 44px;
+  line-height: 18px;
+  margin-right: 6px;
+  text-align: center;
+  width: 80px;
+}
+
+.SearchForm__button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+@media screen and (min-width: 482px) and (max-width: 1044px) {
+  .SearchForm {
+    height: 72px;
+    width: calc(100% - 60px);
+  }
+  .SearchForm__input {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .SearchForm__button {
+    height: 52px;
+    width: 100px;
+  }
+}
+
+@media screen and (min-width: 1045px) {
+  .SearchForm {
+    height: 72px;
+    width: calc(100% - 140px);
+  }
+  .SearchForm__input {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .SearchForm__button {
+    height: 52px;
+    width: 100px;
+  }
+}
+

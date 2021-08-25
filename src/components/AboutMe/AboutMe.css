@@ -1,0 +1,148 @@
+.AboutMe {
+  color:#FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  margin-left: 14px;
+  margin-right: 14px;
+  margin-top: 70px;
+}
+.Bio__photo {
+  align-self: center;
+  border-radius: 10px;
+  max-height: 352px;
+  max-width: 292px;
+  margin-bottom: 40px;
+}
+.Bio {
+  display: flex;
+  flex-direction: column;
+}
+.Bio__info {
+  display: block;
+  flex-direction: column;
+}
+.Bio__subtitle {
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 36px;
+  letter-spacing: -0.04em;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.Bio__clarification {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 16px;
+  margin: 0;
+  margin-bottom: 20px;
+}
+.Bio__description {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16px;
+  margin: 0;
+  margin-bottom: 40px;
+  overflow: auto;
+  text-overflow: ellipsis;
+}
+.Bio__links {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.Bio__link {
+  color:#FFFFFF;  
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  margin-right: 26px;  
+  text-decoration: none; 
+}
+.Bio__link:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+@media screen and (min-width: 560px) and (max-width: 1044px) {
+  .AboutMe {
+    background: #202020;
+    margin: 0;
+    padding-left: 50px;
+    padding-right: 50px;    
+    padding-top: 90px;
+  }
+  .Bio {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  .Bio__info {
+    justify-content: space-between;
+    max-width: 364px;
+    max-height: 292px;
+  }
+  .Bio__photo {
+    margin-left: 49px;
+    margin-bottom: 0;
+    max-height: 307px;
+  }
+  .Bio__subtitle {
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 16px;
+  }
+  .Bio__clarification {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .Bio__description {
+    font-size: 12px;
+    line-height: 18px;
+    max-height: 180px;
+    margin-right: 49px;
+  }
+}
+
+@media screen and (min-width: 560px) and (max-width: 1044px) {
+
+
+}
+
+@media screen and (min-width: 1045px) {
+  .AboutMe {
+    background: #202020;
+    margin: 0;
+    padding-left: 70px;
+    padding-right: 70px;    
+    padding-top: 110px;
+  }
+  .Bio {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  .Bio__info {
+    justify-content: space-between;
+    max-width: 600px;
+    max-height: 292px;
+  }  
+  .Bio__photo {
+    margin-bottom: 0;
+    max-height: 327px;
+  }
+  .Bio__subtitle {
+    font-size: 50px;
+    line-height: 58px;
+    margin-bottom: 16px;
+  }
+  .Bio__clarification {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .Bio__description {
+    font-size: 14px;
+    line-height: 22px;
+    max-height: 180px;
+  }
+}

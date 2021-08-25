@@ -1,0 +1,135 @@
+.Footer {
+  align-items: center;
+  background: #202020;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 1280px;
+  min-width: 320px;
+  padding: 0 14px;
+  width: 100%;
+}
+.Footer__title {
+  color: #8B8B8B;
+  font-size: 12px;
+  line-height: 15px;
+  margin-top: 149px;
+  margin-bottom: 21px;
+  padding: 0;
+  text-align: center;
+}
+.Footer__line {
+  border: none;
+  border-bottom: 1px solid #424242;
+  margin: 0;
+  margin-bottom: 30px;
+  width: 100%;
+}
+.Footer__main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.Footer__nav {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.Footer__link {
+  color: #FFFFFF;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  margin-bottom: 12px;
+  text-decoration: none;
+}
+
+.Footer__link:hover {
+  cursor: pointer;
+  opacity: 0.3;
+}
+
+.Footer__link:last-of-type {
+  margin-bottom: 0px;
+}
+.Footer__copyright {
+  text-align: center;
+  color: #8B8B8B;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 482px) and (max-width: 1044px) {
+  .Footer {
+    padding: 0 30px;
+  }
+  .Footer__title {
+    font-size: 13px;
+    line-height: 16px;
+    margin-bottom: 20px;
+    margin-top: 169px;
+  }
+  .Footer__line {
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+  } 
+  .Footer__main {
+    align-items: baseline;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+  } 
+  .Footer__nav {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 50px;
+  }
+  .Footer__link {
+    font-size: 13px;
+    line-height: 16px;
+    margin-bottom: 0;
+    margin-left: 20px;
+  }  
+  .Footer__copyright {
+    font-size: 13px;
+    line-height: 16px;
+    margin-left: 50px;
+  }
+}
+@media screen and (min-width: 1045px) {
+  .Footer {
+    padding: 0 70px;
+  }
+  .Footer__title {
+    font-size: 13px;
+    line-height: 16px;
+    margin-bottom: 20px;
+    margin-top: 204px;
+  }
+  .Footer__main {
+    align-items: baseline;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+  } 
+  .Footer__nav {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 70px;
+  }
+  .Footer__link {
+    margin-bottom: 0;
+    margin-left: 20px;
+  }  
+  .Footer__copyright {
+    font-size: 13px;
+    line-height: 16px;
+    margin-left: 70px;
+  }
+}
