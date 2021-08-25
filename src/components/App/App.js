@@ -19,7 +19,11 @@ const history = createBrowserHistory();
 
 function App() {
 
+
+  const [moviesCards, setMoviesCards] = React.useState([]);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+
 
   const handleMenuClick = () => {
     console.log("клик клик")
@@ -44,7 +48,7 @@ function App() {
               <Profile onOpenMenu={handleMenuClick} isMenuOpen={isMenuOpen} />              
             </Route>
             <Route path="/movies">
-              <Movies onOpenMenu={handleMenuClick} />
+              <Movies onOpenMenu={handleMenuClick} moviesCards={moviesCards}/>
             </Route>
             <Route path="/saved-movies">
               <SavedMovies onOpenMenu={handleMenuClick} />
