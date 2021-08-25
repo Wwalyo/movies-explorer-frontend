@@ -3,6 +3,7 @@ import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 import './App.css';
+import moviesApi from '../../utils/MoviesApi';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
