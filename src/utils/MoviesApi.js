@@ -12,7 +12,6 @@ class MoviesApi {
     })
       .then((res) => {
         if (res.ok) {  
-          console.log(res.json());
           return res.json();
         }
         return Promise.reject(`Что-то пошло не так: ${res.status}`);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { createBrowserHistory } from 'history';
 
 import './App.css';
@@ -22,8 +23,18 @@ function App() {
 
   const [moviesCards, setMoviesCards] = React.useState([]);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [currentUser, setCurrentUser] = React.useState({});
 
+  React.useEffect(() => {
+    (async () => {
+      const cards = await moviesApi.getMovies();
+      console.log(cards);
+      setMoviesCards(cards);
+      console.log(moviesCards);
+    })();
+  },[]);
 
+  
 
   const handleMenuClick = () => {
     console.log("клик клик")
@@ -34,15 +45,52 @@ function App() {
     setIsMenuOpen(false);
   }
 
+  const handleRegisterUser = ({ name, email, password}) => {
+    authApi.registerUser({ name, email, password })
+    .then(() => {
+      setRegisterSuccess(true);
+      setInfoTooltipOpen(true);
+      history.push('/sign-in');
+    }) 
+    .catch((err) => {
+      console.log('Ошибка. Запрос не выполнен: ', err);
+    });   
+  }
+
+  const handleLoginUser = ({ email, password}) => {
+    authApi.loginUser({ email, password })
+    .then((loggedUser) => {   
+      localStorage.setItem('token', loggedUser.token);
+      setCurrentUser(loggedUser);
+      setLoggedIn(true);
+      history.push('/');
+    }) 
+    .catch((err) => {
+      console.log('Ошибка. Запрос не выполнен: ', err);
+    });  
+  }
+
+  const handleUpdateUser = ({ name, about }) => {
+    api.editUserInfo({ name, about })
+    .then((updatedUserInfo) => {
+      setCurrentUser(updatedUserInfo);
+      closeAllPopups();
+    }) 
+    .catch((err) => {
+      console.log('Ошибка. Запрос не выполнен: ', err);
+    }); 
+  }
+
   return (
     <Router history={history}>
-      <div className="App">
-      <Switch>
+      <CurrentUserContext.Provider value={currentUser}>
+        <div className="App">
+          <Switch>
             <Route path="/sign-in">
               <Login />
             </Route>
             <Route path="/sign-up">
-              <Register />
+              <Register onRegisterUser={handleRegisterUser} />
             </Route>
             <Route path="/profile">
               <Profile onOpenMenu={handleMenuClick} isMenuOpen={isMenuOpen} />              
@@ -61,7 +109,8 @@ function App() {
             <Route exact path="*" component={NotFound} />
           </Switch>
           <Navigation onCloseMenu={handleCloseMenuClick} isMenuOpen={isMenuOpen} />          
-      </div>      
+        </div>   
+      </CurrentUserContext.Provider>   
     </Router>
   );
 }
