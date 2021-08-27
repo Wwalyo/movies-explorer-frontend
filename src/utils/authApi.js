@@ -81,7 +81,8 @@ class AuthApi {
 
   
   const authApi = new AuthApi({
-    baseUrl: '/api',
+    //baseUrl: '/api',
+    baseUrl: '',
     headers: {
       // authorization: '5ed2afeb-ad65-4caf-aa08-0c033c043ac1',
       'Content-Type': 'application/json'

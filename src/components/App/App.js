@@ -22,21 +22,44 @@ const history = createBrowserHistory();
 
 function App() {
 
+  const [loaded, setLoaded] = React.useState(false);
 
+  const [loggedIn, setLoggedIn] = React.useState(false);
   const [moviesCards, setMoviesCards] = React.useState([]);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
+  console.log(loggedIn);
 
-  React.useEffect(() => {
+  React.useEffect(() => 
     (async () => {
-      const cards = await moviesApi.getMovies();
-      console.log(cards);
-      setMoviesCards(cards);
-      console.log(moviesCards);
-    })();
-  },[]);
+      if (!localStorage.token) {
+        history.replace('/sign-in');
+      } else {
+        try {
+          const user = await authApi.validUser(localStorage.token);
+          console.log("user" + user);
+          console.log("currentUser" + currentUser);
+          setLoggedIn(true);
+          setCurrentUser(user);
+          
+        } catch (err) {
+          console.log(err);
+          delete localStorage.token;
+          history.replace('/sign-in');
+        }
+        
+      } 
+      setLoaded(true);
+    })(), [currentUser]);
 
-  
+  //React.useEffect(() => 
+    //(async () => {
+      //if (loggedIn) {
+        //const cards = await moviesApi.getMovies();
+        //setMoviesCards(cards);
+        //console.log(moviesCards);
+      //}
+    //})(), [loggedIn]);
 
   const handleMenuClick = () => {
     console.log("клик клик")
@@ -50,8 +73,7 @@ function App() {
   const handleRegisterUser = ({ name, email, password}) => {
     authApi.registerUser({ name, email, password })
     .then(() => {
-      setRegisterSuccess(true);
-      setInfoTooltipOpen(true);
+      console.log("зареган");
       history.push('/sign-in');
     }) 
     .catch((err) => {
@@ -61,27 +83,29 @@ function App() {
 
   const handleLoginUser = ({ email, password}) => {
     authApi.loginUser({ email, password })
-    .then((loggedUser) => {   
+    .then((loggedUser) => {
+      console.log("Вошел");
+      console.log(loggedUser.token);   
       localStorage.setItem('token', loggedUser.token);
       setCurrentUser(loggedUser);
       setLoggedIn(true);
-      history.push('/');
+      history.push('/movies');
     }) 
     .catch((err) => {
       console.log('Ошибка. Запрос не выполнен: ', err);
     });  
   }
 
-  const handleUpdateUser = ({ name, about }) => {
-    api.editUserInfo({ name, about })
-    .then((updatedUserInfo) => {
-      setCurrentUser(updatedUserInfo);
-      closeAllPopups();
-    }) 
-    .catch((err) => {
-      console.log('Ошибка. Запрос не выполнен: ', err);
-    }); 
-  }
+ // const handleUpdateUser = ({ name, about }) => {
+ //   api.editUserInfo({ name, about })
+ //   .then((updatedUserInfo) => {
+ //     setCurrentUser(updatedUserInfo);
+  //  }) 
+    //.catch((err) => {
+   //   console.log('Ошибка. Запрос не выполнен: ', err);
+   // }); 
+  //}
+  if (!loaded) return null;
 
   return (
     <Router history={history}>

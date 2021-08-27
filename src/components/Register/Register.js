@@ -28,6 +28,7 @@ function Register({...props}) {
   function handleSubmit(e) {
     e.preventDefault();
     props.onRegisterUser({
+      name: name,
       email: email,
       password: password,
     });
