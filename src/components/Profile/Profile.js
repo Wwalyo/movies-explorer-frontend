@@ -1,4 +1,7 @@
+
+import React from "react";
 import { Link } from 'react-router-dom';
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import classNames from 'classnames';
 
 import './Profile.css';
@@ -8,9 +11,11 @@ import logo from '../../images/logo.svg';
 import burger from '../../images/burger.svg';
 
 function Profile({onOpenMenu, isMenuOpen}) {
+  const currentUser = React.useContext(CurrentUserContext); 
   const ProfileClassName = classNames('Profile', {
     'Profile_inactive': isMenuOpen,
   });
+  if (!currentUser) return null;
   return (
     <div className={ProfileClassName}>
       <div className="Profile__header">
@@ -31,16 +36,16 @@ function Profile({onOpenMenu, isMenuOpen}) {
           </div>
         </div>
       </div>
-      <h2 className="Profile__title">Привет, Андрей!</h2>
+      <h2 className="Profile__title">Привет, {currentUser.name} !</h2>
       <div className="Profile-content">
         <div className="Profile-content__cell">
           <p className="Profile-content__cell_name">Имя</p>
-          <p className="Profile-content__cell_value">Андрей</p>          
+          <p className="Profile-content__cell_value">{currentUser.name}</p>          
         </div>
         <hr className="Profile__line"></hr>
         <div className="Profile-content__cell">
           <p className="Profile-content__cell_name">E-mail</p>
-          <p className="Profile-content__cell_value">test@test.test</p>          
+          <p className="Profile-content__cell_value">{currentUser.email}</p>          
         </div>
       </div>
         <Link to="/sign-in" className="Profile__edit-link">Редактировать</Link>

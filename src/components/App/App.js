@@ -4,6 +4,7 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { createBrowserHistory } from 'history';
 
 import './App.css';
+import authApi from '../../utils/authApi';
 import moviesApi from '../../utils/MoviesApi';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
@@ -12,6 +13,7 @@ import NotFound from '../NotFound/NotFound';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Profile from '../Profile/Profile';
+import ProtectedRoute from '../ProtectedRoute';
 import Navigation from '../Navigation/Navigation';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
@@ -87,20 +89,14 @@ function App() {
         <div className="App">
           <Switch>
             <Route path="/sign-in">
-              <Login />
+              <Login onLoginUser={handleLoginUser}/>
             </Route>
             <Route path="/sign-up">
               <Register onRegisterUser={handleRegisterUser} />
             </Route>
-            <Route path="/profile">
-              <Profile onOpenMenu={handleMenuClick} isMenuOpen={isMenuOpen} />              
-            </Route>
-            <Route path="/movies">
-              <Movies onOpenMenu={handleMenuClick} moviesCards={moviesCards}/>
-            </Route>
-            <Route path="/saved-movies">
-              <SavedMovies onOpenMenu={handleMenuClick} />
-            </Route>
+            <ProtectedRoute path="/profile" component={Profile} loggedIn={loggedIn} onOpenMenu={handleMenuClick} isMenuOpen={isMenuOpen} />
+            <ProtectedRoute path="/movies" component={Movies} loggedIn={loggedIn} onOpenMenu={handleMenuClick} moviesCards={moviesCards} />
+            <ProtectedRoute path="/saved-movies" component={SavedMovies} loggedIn={loggedIn} onOpenMenu={handleMenuClick} />
             <Route exact path="/">
               <Header />
               <Main/>
