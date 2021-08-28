@@ -16,16 +16,15 @@ function SearchForm({...props}) {
     if (!isValid){
       return;
     }
-    console.log("isValid" + isValid);
+    console.log(values.searchInput);
     props.onMoviesSearch(values.searchInput);
-    resetForm();
   }; 
 
 
   return (
-    <form className="SearchForm">
+    <form className="SearchForm" onSubmit={handleSubmit} >
       <input type="text" className="SearchForm__input" name="searchInput" placeholder="Фильм" onChange ={handleChange} pattern = "^[A-Za-zА-ЯЁа-яё -]+$" value={values.searchInput || ''} required/>
-      <button type="submit" className={SubmitClassName} onSubmit={handleSubmit}>Поиск</button>
+      <button type="submit" className={SubmitClassName}  >Поиск</button>
     </form>
   )
 }

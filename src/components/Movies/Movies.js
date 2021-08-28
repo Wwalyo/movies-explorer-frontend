@@ -14,27 +14,47 @@ import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import moviesApi from '../../utils/MoviesApi';
 
-function Movies({onOpenMenu, onMoviesSearch}) {
+function Movies({onOpenMenu}) {
   const [searchWord, setSearchWord] = React.useState('');
-  const [moviesCards, setMoviesCards] = React.useState([]);
+  const [sourceMovies, setSourceMovies] = React.useState();
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState();
 
   function isSelected(film) {
-    if (film.nameRU.indexOf(searchWord)) {
+    if (film.nameRU.indexOf(searchWord) >= 0) {
       return film;
     } 
   }
   
 
-  const handlerMoviesSearch = (word) => {
+  const handleMoviesSearch = (word) => {
     setSearchWord(word);
-    moviesApi.getMovies()
-    .then((movies) => {
-      console.log(movies);
-      const selectedMovies = movies.filter(isSelected);
-      setMoviesCards(selectedMovies);
-      console.log(selectedMovies);
-    })
   }
+
+
+  React.useEffect(() => {    
+    if (searchWord && !sourceMovies) {
+      (async () => {
+        setLoading(true);
+        try {
+          const movies = await moviesApi.getMovies();
+          setSourceMovies(movies);
+          console.log(sourceMovies);
+          setError(null);
+          setLoading(false);
+        } catch (e) {
+          setError('бла-бла-бла');
+          setLoading(false);
+        }
+      })();     
+    }
+  }, [searchWord, setSourceMovies, sourceMovies, setLoading, setError]);
+
+  const movies = React.useMemo(() => {
+    if (sourceMovies === undefined) return;
+    if (!searchWord) return sourceMovies;
+    return sourceMovies.filter(isSelected);
+  }, [sourceMovies, searchWord]);
 
 
   return (
@@ -57,10 +77,10 @@ function Movies({onOpenMenu, onMoviesSearch}) {
           </div>          
         </div>
       </div>
-      <SearchForm onMoviesSearch={handlerMoviesSearch}/>
+      <SearchForm onMoviesSearch={handleMoviesSearch}/>
       <FilterCheckbox/>
       <hr className="Movies__line"></hr>
-      <MoviesCardList/>
+      <MoviesCardList movies={movies}/>
       <button className="Movies__continueButton">Ещё</button>
       <Footer/>
 
