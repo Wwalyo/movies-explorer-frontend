@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './Movies.css';
@@ -11,8 +12,31 @@ import burger from '../../images/burger.svg';
 import SearchForm from '../SearchForm/SearchForm';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
+import moviesApi from '../../utils/MoviesApi';
 
 function Movies({onOpenMenu, onMoviesSearch}) {
+  const [searchWord, setSearchWord] = React.useState('');
+  const [moviesCards, setMoviesCards] = React.useState([]);
+
+  function isSelected(film) {
+    if (film.nameRU.indexOf(searchWord)) {
+      return film;
+    } 
+  }
+  
+
+  const handlerMoviesSearch = (word) => {
+    setSearchWord(word);
+    moviesApi.getMovies()
+    .then((movies) => {
+      console.log(movies);
+      const selectedMovies = movies.filter(isSelected);
+      setMoviesCards(selectedMovies);
+      console.log(selectedMovies);
+    })
+  }
+
+
   return (
     <div className="Movies">
       <div className="Profile__header">
@@ -33,7 +57,7 @@ function Movies({onOpenMenu, onMoviesSearch}) {
           </div>          
         </div>
       </div>
-      <SearchForm onMoviesSearch={onMoviesSearch}/>
+      <SearchForm onMoviesSearch={handlerMoviesSearch}/>
       <FilterCheckbox/>
       <hr className="Movies__line"></hr>
       <MoviesCardList/>

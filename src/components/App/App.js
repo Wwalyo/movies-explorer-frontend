@@ -23,13 +23,11 @@ const history = createBrowserHistory();
 function App() {
 
   const [loaded, setLoaded] = React.useState(false);
-
   const [loggedIn, setLoggedIn] = React.useState(false);
-  const [moviesCards, setMoviesCards] = React.useState([]);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [selectedMovie, setSelectedMovie] = React.useState(null);
   const [currentUser, setCurrentUser] = React.useState({});
-  const [searchWord, setSearchWord] = React.useState('');
+
   console.log(loggedIn);
 
   React.useEffect(() => {
@@ -51,25 +49,7 @@ function App() {
   }, [setCurrentUser, setLoggedIn]);
 
 
-  function isSelected(film) {
-    if (film.nameRU.indexOf(searchWord)) {
-      return film;
-    } 
-  }
-  
 
-  const handlerMoviesSearch = (word) => {
-    setSearchWord(word);
-    moviesApi.getMovies()
-    .then((movies) => {
-      console.log(movies);
-      const selectedMovies = movies.filter(isSelected);
-      setMoviesCards(selectedMovies);
-      console.log(selectedMovies);
-
-
-    })
-  }
 
   const handleMenuClick = () => {
     setIsMenuOpen(true);
@@ -132,7 +112,7 @@ function App() {
               <Register onRegisterUser={handleRegisterUser} />
             </Route>
             <ProtectedRoute path="/profile" component={Profile} loggedIn={loggedIn} onOpenMenu={handleMenuClick} isMenuOpen={isMenuOpen} />
-            <ProtectedRoute path="/movies" component={Movies} loggedIn={loggedIn} onOpenMenu={handleMenuClick} moviesCards={moviesCards} onMoviesSearch = {handlerMoviesSearch} onMovieClick={handleMovieClick}/>
+            <ProtectedRoute path="/movies" component={Movies} loggedIn={loggedIn} onOpenMenu={handleMenuClick} onMovieClick={handleMovieClick}/>
             <ProtectedRoute path="/saved-movies" component={SavedMovies} loggedIn={loggedIn} onOpenMenu={handleMenuClick} onMovieClick={handleMovieClick}/>
             <Route exact path="/">
               <Header />
