@@ -12,7 +12,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 
-function Movies({onOpenMenu}) {
+function Movies({onOpenMenu, onMoviesSearch}) {
   return (
     <div className="Movies">
       <div className="Profile__header">
@@ -33,7 +33,7 @@ function Movies({onOpenMenu}) {
           </div>          
         </div>
       </div>
-      <SearchForm/>
+      <SearchForm onMoviesSearch={onMoviesSearch}/>
       <FilterCheckbox/>
       <hr className="Movies__line"></hr>
       <MoviesCardList/>

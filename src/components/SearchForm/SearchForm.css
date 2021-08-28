@@ -39,6 +39,11 @@
   opacity: 0.8;
 }
 
+.SearchForm__button_inactive {
+  background:#8B8B8B;
+  pointer-events: none;
+}
+
 @media screen and (min-width: 482px) and (max-width: 1044px) {
   .SearchForm {
     height: 72px;

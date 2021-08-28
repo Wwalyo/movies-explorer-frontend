@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import classNames from "classnames";
 
 import './Register.css';
 import '../Login/Login.css';
@@ -7,33 +8,25 @@ import '../Header/Header.css';
 import '../NotFound/NotFound.css';
 
 import logo from '../../images/logo.svg';
+import {FormWithValidation} from '../FormValidation';
 
 function Register({...props}) {
-  const [name, setName] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
 
-  function handleNameChange(e) {
-    setName(e.target.value);
-  }
+  const { values, handleChange, errors, isValid, resetForm } = FormWithValidation();
 
-  function handleEmailChange(e) {
-    setEmail(e.target.value);
-  }
+  const SubmitClassName = classNames('Login__submit Login__submit_reg', {
+    '.Login__submit_inactive': !isValid,
+  });
 
-  function handlePasswordChange(e) {
-    setPassword(e.target.value);
-  }
 
   function handleSubmit(e) {
     e.preventDefault();
     props.onRegisterUser({
-      name: name,
-      email: email,
-      password: password,
+      name: values.nameInput,
+      email: values.emailInput,
+      password: values.passwordInput,
     });
-    setEmail('');
-    setPassword('');
+    resetForm();
   }  
 
   return (
@@ -42,15 +35,15 @@ function Register({...props}) {
         <img src={logo} className="Header__logo Logo_auth" alt="Логотип Movie"/>
         <h2 className="Login__title">Добро пожаловать!</h2>
         <h6 className="Login__input-name">Имя</h6>
-        <input type="text" className="Login__input" onChange={handleNameChange} value={name || ''} required/>
-        <span className='Login__input-error'></span>
+        <input type="text" className="Login__input" onChange={handleChange} pattern = "^[A-Za-zА-ЯЁа-яё -]+$" name = "nameInput" value={values.nameInput || ''} required/>
+        <span className='Login__input-error'>{errors.nameInput}</span>
         <h6 className="Login__input-name">E-mail</h6>
-        <input type="text" className="Login__input" onChange={handleEmailChange} value={email || ''} required/>
-        <span className='Login__input-error'></span>
+        <input type="email" className="Login__input" onChange={handleChange} name = "emailInput" value={values.emailInput || ''} required/>
+        <span className='Login__input-error'>{errors.emailInput}</span>
         <h6 className="Login__input-name">Пароль</h6>
-        <input type="password" className="Login__input Login__password" onChange={handlePasswordChange} value={password || ''} name="password-input" required/>
-        <span className='Login__input-error'>Что-то пошло не так...</span>
-        <button type="submit" className="Login__submit Login__submit_reg" onClick={handleSubmit}>Зарегистрироваться</button>
+        <input type="password" className="Login__input Login__password" onChange={handleChange} name = "passwordInput" pattern = "[1-9A-Za-z]{8}$" value={values.passwordInput || ''} required/>
+        <span className='Login__input-error'>{errors.passwordInput}</span>
+        <button type="submit" className={SubmitClassName} onClick={handleSubmit}>Зарегистрироваться</button>
         <div className="Login__hint">
           <p className="Login__hint-text">Уже зарегистрированы?</p>
           <Link to="/sign-in" className="NotFound__link">Войти</Link>
