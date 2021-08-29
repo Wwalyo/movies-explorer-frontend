@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import React, {useEffect, useMemo, useState} from 'react';
+import classNames from 'classnames';
 import {Link} from 'react-router-dom';
 
 import Footer from '../Footer/Footer';
@@ -9,50 +9,84 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 
 import logo from '../../images/logo.svg';
 import burger from '../../images/burger.svg';
-import moviesApi from '../../utils/moviesApi';
+import api from '../../api';
 
 import './Movies.css';
 import '../Header/Header.css';
 import '../Profile/Profile.css';
-import mainApi from '../../utils/mainApi';
+
+const DEFAULT_QUERY = {
+  itemsPerPage: 3,
+  pagesCount: 1
+};
 
 export default function Movies({onOpenMenu, location, ...props}) {
-  const [searchWord, setSearchWord] = useState('');
-  const [sourceMovies, setSourceMovies] = useState();
+  const [movies, setMovies] = useState();
+  const [query, setQuery] = useState(DEFAULT_QUERY);
+  const [canLoadMore, setCanLoadMore] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
 
-  useEffect(() => {
-    if (searchWord && !sourceMovies) {
-      console.log('search or source has been changed');
-      (async () => {
-        setLoading(true);
-        try {
-          const movies = await moviesApi.getMovies();
-          console.log('got from the server:', movies)
-          setSourceMovies(movies);
-          setError(null);
-          setLoading(false);
-        } catch (e) {
-          setError('бла-бла-бла');
-          setLoading(false);
-        }
-      })();
-    }
-  }, [searchWord, sourceMovies, setSourceMovies, setLoading, setError]);
+  const setSearchWord = (search) => {
+    setQuery({
+      ...DEFAULT_QUERY,
+      isShort: query.isShort,
+      search
+    });
+  };
 
-  const movies = useMemo(() => {
-    if (sourceMovies === undefined || !searchWord) return;
-    const substr = searchWord.toUpperCase();
-    return sourceMovies.filter(item => (item.nameRU || '').toUpperCase().indexOf(substr) >= 0);
-  }, [sourceMovies, searchWord]);
-  console.log('current movies:', movies);
+  const requery = async () => {
+    setLoading(true);
+    try {
+      const movies = await api.movies.get(query);
+      const neededCount = query.itemsPerPage * query.pagesCount;
+      setCanLoadMore(movies.length > neededCount);
+      setMovies(movies.slice(0, neededCount));
+      setError(null);
+      setLoading(false);
+    } catch (err) {
+      setError('бла-бла-бла');
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (query && query.search) {
+      requery();
+    } else {
+      setError(null);
+      setMovies(null);
+    }
+  }, [query, setMovies, setLoading, setError]);
+
+  const handleLike = async (value) => {
+    await api.movies.like(value);
+    await requery();
+  };
+
+  const handleUnlike = async (value) => {
+    await api.movies.unLike(value);
+    await requery();
+  };
+
+  const handleFilter = (e) => {
+    setQuery({
+      ...query,
+      ...DEFAULT_QUERY,
+      [e.target.name]: e.target.checked
+    });
+  };
+
+  const loadMore = () => {
+    setQuery({
+      ...query,
+      pagesCount: query.pagesCount + 1
+    });
+  };
 
   const moreClassName = classNames('Movies__continueButton', {
     'Movies__continueButton_inactive': !movies
   });
-
-
 
   return (
     <div className="Movies">
@@ -75,10 +109,10 @@ export default function Movies({onOpenMenu, location, ...props}) {
         </div>
       </div>
       <SearchForm onMoviesSearch={setSearchWord} />
-      <FilterCheckbox/>
+      <FilterCheckbox value={query} onChange={handleFilter} />
       <hr className="Movies__line"></hr>
-      <MoviesCardList movies={movies} location = {location} loading={loading} />
-      <button className={moreClassName}>Ещё</button>
+      <MoviesCardList loading={loading} movies={movies} canLike onLike={handleLike} onUnlike={handleUnlike} />
+      {canLoadMore ? <button className={moreClassName} onClick={loadMore}>Ещё</button> : null}
       <Footer/>
     </div>
   );

@@ -1,11 +1,9 @@
 import React from 'react';
-import { Router, Route, Switch, useLocation } from 'react-router-dom';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import { createBrowserHistory } from 'history';
+import {Router, Route, Switch, useLocation} from 'react-router-dom';
+import {createBrowserHistory} from 'history';
 
-import './App.css';
-import authApi from '../../utils/authApi';
-import moviesApi from '../../utils/moviesApi';
+import {CurrentUserContext} from '../../contexts/CurrentUserContext';
+import api from '../../api';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
@@ -18,17 +16,16 @@ import Navigation from '../Navigation/Navigation';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 
+import './App.css';
+
 const history = createBrowserHistory();
 
-function App(...props) {
+export default function App(...props) {
   const [loaded, setLoaded] = React.useState(false);
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [selectedMovie, setSelectedMovie] = React.useState(null);
   const [currentUser, setCurrentUser] = React.useState({});
-  
-
-  console.log(loggedIn);
 
   React.useEffect(() => {
     (async () => {
@@ -36,7 +33,7 @@ function App(...props) {
         history.replace('/sign-in');
       } else {
         try {
-          const user = await authApi.validUser(localStorage.token);
+          const user = await api.auth.getSession(localStorage.token);
           setLoggedIn(true);
           setCurrentUser(user);
         } catch (err) {
@@ -48,56 +45,52 @@ function App(...props) {
     })();
   }, [setCurrentUser, setLoggedIn]);
 
-
-
-
   const handleMenuClick = () => {
     setIsMenuOpen(true);
-  }
+  };
 
   const handleCloseMenuClick = () => {
     setIsMenuOpen(false);
-  }
+  };
 
   const handleMovieClick = (movie) => {
     setSelectedMovie(movie);
-  }
+  };
 
-  const handleRegisterUser = ({ name, email, password}) => {
-    authApi.registerUser({ name, email, password })
-    .then(() => {
+  const handleRegisterUser = async ({name, email, password}) => {
+    try {
+      const user = await api.auth.signup({name, email, password});
       console.log("зареган");
+      setLoggedIn(true);
+      setCurrentUser(user);
       history.push('/movies');
-    }) 
-    .catch((err) => {
+    } catch (err) {
       console.log('Ошибка. Запрос не выполнен: ', err);
-    });   
-  }
+    }
+  };
 
-  const handleLoginUser = ({ email, password}) => {
-    authApi.loginUser({ email, password })
-    .then((loggedUser) => {
+  const handleLoginUser = async ({email, password}) => {
+    try {
+      const user = await api.auth.signin({email, password});
       console.log("Вошел");
-      console.log(loggedUser.token);   
-      localStorage.setItem('token', loggedUser.token);
-      setCurrentUser(loggedUser);
+      console.log(user.token);
+      localStorage.setItem('token', user.token);
+      setCurrentUser(user);
       setLoggedIn(true);
       history.push('/movies');
-    }) 
-    .catch((err) => {
+    } catch (err) {
       console.log('Ошибка. Запрос не выполнен: ', err);
-    });  
-  }
+    }
+  };
 
-  const handleUpdateUser = ({ name, email }) => {
-    authApi.patchUser({ name, email })
-    .then((updatedUserInfo) => {
-      setCurrentUser(updatedUserInfo);
-    }) 
-    .catch((err) => {
+  const handleUpdateUser = async ({data}) => {
+    try {
+      const user = await api.auth.updateSelf({data});
+      setCurrentUser(user);
+    } catch (err) {
       console.log('Ошибка. Запрос не выполнен: ', err);
-    }); 
-  }
+    }
+  };
 
   if (!loaded) return null;
 
@@ -118,15 +111,13 @@ function App(...props) {
             <Route exact path="/">
               <Header />
               <Main/>
-              <Footer/>   
-            </Route> 
+              <Footer/>
+            </Route>
             <Route exact path="*" component={NotFound} />
           </Switch>
-          <Navigation onCloseMenu={handleCloseMenuClick} isMenuOpen={isMenuOpen} />          
-        </div>   
-      </CurrentUserContext.Provider>   
+          <Navigation onCloseMenu={handleCloseMenuClick} isMenuOpen={isMenuOpen} />
+        </div>
+      </CurrentUserContext.Provider>
     </Router>
   );
 }
-
-export default App;

@@ -1,25 +1,23 @@
 import classNames from 'classnames';
 
-import './SearchForm.css';
-
 import {FormWithValidation} from '../FormValidation';
 
-function SearchForm({...props}) {
+import './SearchForm.css';
+
+export default function SearchForm({...props}) {
   const { values, handleChange, errors, isValid, resetForm } = FormWithValidation();
 
   const SubmitClassName = classNames('SearchForm__button', {
     'SearchForm__button_inactive': !isValid,
   });
-  console.log(errors);
-  function handleSubmit(e) {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!isValid){
       return;
     }
-    console.log(values.searchInput);
     props.onMoviesSearch(values.searchInput);
-  }; 
-
+  };
 
   return (
     <form className="SearchForm" onSubmit={handleSubmit} >
@@ -27,6 +25,4 @@ function SearchForm({...props}) {
       <button type="submit" className={SubmitClassName}  >Поиск</button>
     </form>
   )
-}
-  
-  export default SearchForm;
+};

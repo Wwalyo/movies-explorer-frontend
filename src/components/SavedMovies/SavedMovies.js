@@ -1,59 +1,65 @@
-import { Link } from 'react-router-dom';
 import React, {useEffect, useMemo, useState} from 'react';
 import classNames from 'classnames';
-import './SavedMovies.css';
-import '../Header/Header.css';
-import '../Profile/Profile.css';
+import {Link} from 'react-router-dom';
+
 import Footer from '../Footer/Footer';
-
-
-
-
 import logo from '../../images/logo.svg';
 import burger from '../../images/burger.svg';
 import SearchForm from '../SearchForm/SearchForm';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import mainApi from '../../utils/mainApi';
+import api from '../../api';
 
-function SavedMovies({onOpenMenu}) {
+import './SavedMovies.css';
+import '../Header/Header.css';
+import '../Profile/Profile.css';
 
-  const [searchWord, setSearchWord] = useState('');
-  const [sourceMovies, setSourceMovies] = useState();
+export default function SavedMovies({onOpenMenu}) {
+  const [movies, setMovies] = useState();
+  const [query, setQuery] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
 
-  useEffect(() => {
-    if (searchWord && !sourceMovies) {
-      console.log('search or source has been changed');
-      (async () => {
-        setLoading(true);
-        try {
-          const movies = await mainApi.getMovies();
-          console.log('got from the server:', movies)
-          setSourceMovies(movies);
-          setError(null);
-          setLoading(false);
-        } catch (e) {
-          setError('бла-бла-бла');
-          setLoading(false);
-        }
-      })();
-    }
-  }, [searchWord, sourceMovies, setSourceMovies, setLoading, setError]);
+  const setSearchWord = (search) => {
+    setQuery({
+      search
+    });
+  };
 
-  const movies = useMemo(() => {
-    if (sourceMovies === undefined || !searchWord) return;
-    const substr = searchWord.toUpperCase();
-    return sourceMovies.filter(item => (item.nameRU || '').toUpperCase().indexOf(substr) >= 0);
-  }, [sourceMovies, searchWord]);
-  console.log('current movies:', movies);
+  const requery = async () => {
+    setLoading(true);
+    try {
+      const movies = await api.movies.getFavorites(query);
+      setMovies(movies);
+      setError(null);
+      setLoading(false);
+    } catch (err) {
+      setError('бла-бла-бла');
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    requery();
+  }, [query]);
+
+  const handleFilter = (e) => {
+    setQuery({
+      ...query,
+      [e.target.name]: e.target.checked
+    });
+  };
+
+  const handleUnlike = async (value) => {
+    await api.movies.unLike(value);
+    await requery();
+  };
 
   return (
     <div className="Movies">
       <div className="Profile__header">
-        <img src={logo} className="Header__logo" alt="Логотип Movie"/>     
-        <img src={burger} className="Burger" onClick={onOpenMenu} alt="открывающееся меню"/>
+        <img src={logo} className="Header__logo" alt="Логотип Movie" />
+        <img src={burger} className="Burger" onClick={onOpenMenu} alt="открывающееся меню" />
         <div className="Profile__Navigation">
           <ul className="Profile__films-list">
             <li>
@@ -66,17 +72,14 @@ function SavedMovies({onOpenMenu}) {
           <div className="Profile__links">
             <span className="Profile__link">Аккаунт</span>
             <button className="Profile__icon-link"></button>
-          </div>          
+          </div>
         </div>
       </div>
-      <SearchForm onMoviesSearch={setSearchWord}/>
-      <FilterCheckbox/>
+      <SearchForm onMoviesSearch={setSearchWord} />
+      <FilterCheckbox value={query} onChange={handleFilter} />
       <hr className="Movies__line"></hr>
-      <MoviesCardList movies={movies} loading={loading} />
+      <MoviesCardList movies={movies} loading={loading} onUnlike={handleUnlike} />
       <Footer/>
-
     </div>
   );
-}
-  
-export default SavedMovies;
+};

@@ -1,47 +1,35 @@
-import classNames from 'classnames';
 import React from 'react';
-import './MoviesCard.css';
+import classNames from 'classnames';
+
+import api from '../../api';
 import {minConvertor} from '../../utils/minConvertor';
-import mainApi from '../../utils/mainApi';
 
+import './MoviesCard.css';
 
-function MoviesCard({data, location, ...props}) {
+export default function MoviesCard({value, canBeLiked, onLike, onUnlike}) {
 
-  const [like, setLike] = React.useState(false);
-  console.log("in MoviesCard, data" + data);
-  const isSavedMovies = location === "/saved-movies";
-
-  const saveMovie = (data) => {
-    if (like & !isSavedMovies) return;
-    if (isSavedMovies) {
-      mainApi.deleteMovie(data);
-    } else {
-      mainApi.saveMovie(data)
-      .then((newSavedItem) => {
-        if (!like) setLike(true);    
-      }) 
-    }      
-}
-
-
+  const toggleLike = () => {
+    if (value.isLiked) {
+      onUnlike(value);
+    } else if (canBeLiked) {
+      onLike(value);
+    }
+  };
 
   const cardLikeButtonClassName = classNames('MoviesCard__fav', {
-
-    'MoviesCard__fav_isLiked': like,
-    'MoviesCard__fav_toUnfavorite': isSavedMovies,
+    'MoviesCard__fav_isLiked': value.isLiked,
+    'MoviesCard__fav_toUnfavorite': !canBeLiked,
   });
   return (
     <div className="MoviesCard">
       <div className="MoviesCard__header">
         <div className="MoviesCard__caption">
-          <h4 className="MoviesCard__name">{data.nameRU}</h4>
-          <span className="MoviesCard__duration">{minConvertor(data.duration)}</span>
+          <h4 className="MoviesCard__name">{value.nameRU}</h4>
+          <span className="MoviesCard__duration">{minConvertor(value.duration)}</span>
         </div>
-        <button type="button" className={cardLikeButtonClassName} onClick={() => saveMovie(data)}></button>
-      </div>        
-      <img src= {`https://api.nomoreparties.co` + data.image.url} className="Moviescard__image" alt={data.nameRU}/>
+        <button type="button" className={cardLikeButtonClassName} onClick={toggleLike}></button>
+      </div>
+      <img src= {`https://api.nomoreparties.co` + value.image.url} className="Moviescard__image" alt={value.nameRU} />
     </div>
   )
-}
-  
-export default MoviesCard;
+};

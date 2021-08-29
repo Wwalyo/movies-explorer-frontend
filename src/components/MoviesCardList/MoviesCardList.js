@@ -1,27 +1,20 @@
-
 import React from 'react';
-import './MoviesCardList.css';
+
 import Preloader from '../Preloader/Preloader';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
+import './MoviesCardList.css';
 
-function MoviesCardList({...props}) {
+export default function MoviesCardList({loading, movies, canLike, onLike, onUnlike}) {
   const currentLocation = window.location.pathname;
-
-
-
-
-
-  if (props.loading) return (<Preloader />);
-  if (!props.movies) return (<span className="MoviesCardList__NothingFound">Нет найденных фильмов</span>);
+  if (!movies) return null;
+  if (!movies.length) return (<span className="MoviesCardList__NothingFound">Нет найденных фильмов</span>);
   return (
     <section className="MoviesCardList">
-      {props.movies.map((item) => (
-        <MoviesCard location = {currentLocation} data={item} key={item.id} /> 
+      {movies.map((item) => (
+        <MoviesCard canBeLiked={canLike} value={item} onLike={onLike} onUnlike={onUnlike} key={item.id} />
       ))}
-
+      {loading ? <Preloader /> : null}
     </section>
   )
-}
-  
-export default MoviesCardList;
+};
