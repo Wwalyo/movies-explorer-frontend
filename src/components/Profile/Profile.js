@@ -4,17 +4,38 @@ import { Link } from 'react-router-dom';
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import classNames from 'classnames';
 
+
 import './Profile.css';
 import '../Header/Header.css';
-
+import {FormWithValidation} from '../FormValidation';
 import logo from '../../images/logo.svg';
 import burger from '../../images/burger.svg';
 
-function Profile({onOpenMenu, isMenuOpen}) {
+function Profile({onOpenMenu, isMenuOpen, ...props}) {
+  const { values, handleChange, errors, isValid, resetForm } = FormWithValidation();
+  
+  const SubmitClassName = classNames('Profile__edit-link', {
+    'Profile__edit-link_inactive': !isValid,
+  });
+
   const currentUser = React.useContext(CurrentUserContext); 
+
   const ProfileClassName = classNames('Profile', {
     'Profile_inactive': isMenuOpen,
   });
+
+  const handleEditProfile = (e) => {
+    e.preventDefault();
+    if (!isValid){
+      return;
+    }
+    console.log(values);
+    props.onLoginUser({
+      name: values.profileName || currentUser.name,
+      email: values.profileEmail || currentUser.email,
+    });
+  }
+
   if (!currentUser) return null;
   return (
     <div className={ProfileClassName}>
@@ -37,18 +58,18 @@ function Profile({onOpenMenu, isMenuOpen}) {
         </div>
       </div>
       <h2 className="Profile__title">Привет, {currentUser.name} !</h2>
-      <div className="Profile-content">
+      <form className="Profile-content">
         <div className="Profile-content__cell">
           <p className="Profile-content__cell_name">Имя</p>
-          <p className="Profile-content__cell_value">{currentUser.name}</p>          
+          <input className="Profile-content__cell_value" name = "profileName" onChange = {handleChange} value = {values.profileName || currentUser.name} />          
         </div>
         <hr className="Profile__line"></hr>
         <div className="Profile-content__cell">
           <p className="Profile-content__cell_name">E-mail</p>
-          <p className="Profile-content__cell_value">{currentUser.email}</p>          
+          <input className="Profile-content__cell_value" name = "profileEmail" onChange = {handleChange} value = {values.profileEmail || currentUser.email} />        
         </div>
-      </div>
-        <Link to="/sign-in" className="Profile__edit-link">Редактировать</Link>
+      </form>
+        <Link to="/sign-in" className={SubmitClassName} onClick = {handleEditProfile}>Редактировать</Link>
         <Link to="/" className="Profile__exit-link">Выйти из аккаунта</Link>      
     </div>
   );

@@ -14,7 +14,7 @@ import burger from '../../images/burger.svg';
 import SearchForm from '../SearchForm/SearchForm';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import mainApi from '../../utils/MainApi';
+import mainApi from '../../utils/mainApi';
 
 function SavedMovies({onOpenMenu}) {
 

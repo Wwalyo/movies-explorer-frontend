@@ -9,12 +9,12 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 
 import logo from '../../images/logo.svg';
 import burger from '../../images/burger.svg';
-import moviesApi from '../../utils/MoviesApi';
+import moviesApi from '../../utils/moviesApi';
 
 import './Movies.css';
 import '../Header/Header.css';
 import '../Profile/Profile.css';
-import mainApi from '../../utils/MainApi';
+import mainApi from '../../utils/mainApi';
 
 export default function Movies({onOpenMenu, location, ...props}) {
   const [searchWord, setSearchWord] = useState('');

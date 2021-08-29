@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 import './MoviesCard.css';
 import {minConvertor} from '../../utils/minConvertor';
-import mainApi from '../../utils/MainApi';
+import mainApi from '../../utils/mainApi';
 
 
 function MoviesCard({data, location, ...props}) {

@@ -5,7 +5,7 @@ import { createBrowserHistory } from 'history';
 
 import './App.css';
 import authApi from '../../utils/authApi';
-import moviesApi from '../../utils/MoviesApi';
+import moviesApi from '../../utils/moviesApi';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
@@ -89,15 +89,16 @@ function App(...props) {
     });  
   }
 
- // const handleUpdateUser = ({ name, about }) => {
- //   api.editUserInfo({ name, about })
- //   .then((updatedUserInfo) => {
- //     setCurrentUser(updatedUserInfo);
-  //  }) 
-    //.catch((err) => {
-   //   console.log('Ошибка. Запрос не выполнен: ', err);
-   // }); 
-  //}
+  const handleUpdateUser = ({ data }) => {
+    authApi.patchUser({ data })
+    .then((updatedUserInfo) => {
+      setCurrentUser(updatedUserInfo);
+    }) 
+    .catch((err) => {
+      console.log('Ошибка. Запрос не выполнен: ', err);
+    }); 
+  }
+
   if (!loaded) return null;
 
   return (
@@ -111,7 +112,7 @@ function App(...props) {
             <Route path="/sign-up">
               <Register onRegisterUser={handleRegisterUser} />
             </Route>
-            <ProtectedRoute path="/profile" component={Profile} loggedIn={loggedIn} onOpenMenu={handleMenuClick} isMenuOpen={isMenuOpen} />
+            <ProtectedRoute path="/profile" component={Profile} loggedIn={loggedIn} onOpenMenu={handleMenuClick} onLoginUser = {handleUpdateUser} isMenuOpen={isMenuOpen} />
             <ProtectedRoute path="/movies" component={Movies} loggedIn={loggedIn} onOpenMenu={handleMenuClick} onMovieClick={handleMovieClick}/>
             <ProtectedRoute path="/saved-movies" component={SavedMovies} loggedIn={loggedIn} onOpenMenu={handleMenuClick} onMovieClick={handleMovieClick}/>
             <Route exact path="/">

@@ -95,8 +95,22 @@
   margin-left: 30px;
 }
 .Profile-content__cell_value {
+  background-color: #202020;
+  border: none;
+  color: #FFFFFF;
   margin: 0;
   margin-right: 30px;
+  outline : none;
+  text-align: end;
+}
+.Profile-content__cell_value:focus {
+  background-color: #202020;
+}
+.Profile-content__cell_value:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-color: #202020 !important;
+  background-image: none !important;
+  color: -internal-light-dark(black, white) !important;
 }
 .Profile__edit-link {
   color: #FFFFFF;
@@ -106,6 +120,11 @@
   margin-bottom: 16px;
   text-decoration: none;
 }
+.Profile__edit-link_inactive {
+  color:#8B8B8B;
+  pointer-events: none;  
+}
+
 .Profile__edit-link:hover {
   cursor: pointer;
   opacity: 0.8;

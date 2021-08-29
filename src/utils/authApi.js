@@ -60,7 +60,10 @@ class AuthApi {
   patchUser({name, email}) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
-      headers: {"Content-Type": "application/json"},
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization" : `Bearer ${localStorage.token}`      
+      },
       body: JSON.stringify({
         name: name,
         email: email,
