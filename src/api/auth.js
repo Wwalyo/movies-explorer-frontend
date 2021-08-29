@@ -11,10 +11,6 @@ export default class Auth {
     }
     throw new Error(`Что-то пошло не так: ${response.status}`);
   }
-  signup({name, password, email}) {
-
-    return this._intApi.post('/signup', {name, password, email});
-  }
   async sigup({name,password, email}) {
     this._intApi.token = null;
     const response = await this._intApi.post('/signup', {name, password, email});
