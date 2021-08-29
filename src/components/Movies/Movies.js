@@ -1,67 +1,64 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import classNames from 'classnames';
+import React, {useEffect, useMemo, useState} from 'react';
+import {Link} from 'react-router-dom';
+
+import Footer from '../Footer/Footer';
+import SearchForm from '../SearchForm/SearchForm';
+import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
+import MoviesCardList from '../MoviesCardList/MoviesCardList';
+
+import logo from '../../images/logo.svg';
+import burger from '../../images/burger.svg';
+import moviesApi from '../../utils/MoviesApi';
 
 import './Movies.css';
 import '../Header/Header.css';
 import '../Profile/Profile.css';
-import Footer from '../Footer/Footer';
+import mainApi from '../../utils/MainApi';
 
+export default function Movies({onOpenMenu, location, ...props}) {
+  const [searchWord, setSearchWord] = useState('');
+  const [sourceMovies, setSourceMovies] = useState();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
 
-import logo from '../../images/logo.svg';
-import burger from '../../images/burger.svg';
-import SearchForm from '../SearchForm/SearchForm';
-import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
-import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import moviesApi from '../../utils/MoviesApi';
-
-function Movies({onOpenMenu}) {
-  const [searchWord, setSearchWord] = React.useState('');
-  const [sourceMovies, setSourceMovies] = React.useState();
-  const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState();
-
-  function isSelected(film) {
-    if (film.nameRU.indexOf(searchWord) >= 0) {
-      return film;
-    } 
-  }
-  
-
-  const handleMoviesSearch = (word) => {
-    setSearchWord(word);
-  }
-
-
-  React.useEffect(() => {    
+  useEffect(() => {
     if (searchWord && !sourceMovies) {
+      console.log('search or source has been changed');
       (async () => {
         setLoading(true);
         try {
           const movies = await moviesApi.getMovies();
+          console.log('got from the server:', movies)
           setSourceMovies(movies);
-          console.log(sourceMovies);
           setError(null);
           setLoading(false);
         } catch (e) {
           setError('бла-бла-бла');
           setLoading(false);
         }
-      })();     
+      })();
     }
-  }, [searchWord, setSourceMovies, sourceMovies, setLoading, setError]);
+  }, [searchWord, sourceMovies, setSourceMovies, setLoading, setError]);
 
-  const movies = React.useMemo(() => {
-    if (sourceMovies === undefined) return;
-    if (!searchWord) return sourceMovies;
-    return sourceMovies.filter(isSelected);
+  const movies = useMemo(() => {
+    if (sourceMovies === undefined || !searchWord) return;
+    const substr = searchWord.toUpperCase();
+    return sourceMovies.filter(item => (item.nameRU || '').toUpperCase().indexOf(substr) >= 0);
   }, [sourceMovies, searchWord]);
+  console.log('current movies:', movies);
+
+  const moreClassName = classNames('Movies__continueButton', {
+    'Movies__continueButton_inactive': !movies
+  });
+
 
 
   return (
     <div className="Movies">
       <div className="Profile__header">
-        <img src={logo} className="Header__logo" alt="Логотип Movie"/>     
-        <img src={burger} className="Burger" onClick={onOpenMenu} alt="открывающееся меню"/>
+        <img src={logo} className="Header__logo" alt="Логотип Movie" />
+        <img src={burger} className="Burger" onClick={onOpenMenu} alt="Открывающееся меню" />
         <div className="Profile__Navigation">
           <ul className="Profile__films-list">
             <li>
@@ -74,18 +71,15 @@ function Movies({onOpenMenu}) {
           <div className="Profile__links">
             <span className="Profile__link">Аккаунт</span>
             <button className="Profile__icon-link"></button>
-          </div>          
+          </div>
         </div>
       </div>
-      <SearchForm onMoviesSearch={handleMoviesSearch}/>
+      <SearchForm onMoviesSearch={setSearchWord} />
       <FilterCheckbox/>
       <hr className="Movies__line"></hr>
-      <MoviesCardList movies={movies}/>
-      <button className="Movies__continueButton">Ещё</button>
+      <MoviesCardList movies={movies} location = {location} loading={loading} />
+      <button className={moreClassName}>Ещё</button>
       <Footer/>
-
     </div>
   );
-}
-  
-export default Movies;
+};

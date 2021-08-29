@@ -11,10 +11,16 @@
   width: Calc(100% - 28px);
 }
 
+.MoviesCardList__NothingFound {
+  color: #ffffff;
+}
+
 @media screen and (min-width: 482px) and (max-width: 1044px) {
   .MoviesCardList {
-    grid-column-gap: 30px;
-    
+    grid-column-gap: 30px;    
+  }
+  .MoviesCardList__continueButton {
+    width: 320px;
   }
 }
 
@@ -22,5 +28,8 @@
   .MoviesCardList {
     grid-column-gap: 30px;
     width: calc(100% - 140px);
+  }
+  .MoviesCardList__continueButton {
+    width: 320px;
   }
 }

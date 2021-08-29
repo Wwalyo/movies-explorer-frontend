@@ -1,6 +1,7 @@
 .MoviesCard {
   display: flex;
   flex-direction: column;
+  min-width: 300px;
 }
 
 .MoviesCard__header {
@@ -25,6 +26,7 @@
   line-height: 18px;
   margin: 0;
   margin-bottom: 9px;
+  max-width: 250px;
 }
 
 .MoviesCard__duration {
@@ -35,7 +37,9 @@
   line-height: 13px;
 }
 
-
+.Moviescard__image {
+  max-width: 300px;
+}
 
 .MoviesCard__fav {
   align-self: center;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch, useLocation } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { createBrowserHistory } from 'history';
 
@@ -20,13 +20,13 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 
 const history = createBrowserHistory();
 
-function App() {
-
+function App(...props) {
   const [loaded, setLoaded] = React.useState(false);
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [selectedMovie, setSelectedMovie] = React.useState(null);
   const [currentUser, setCurrentUser] = React.useState({});
+  
 
   console.log(loggedIn);
 
