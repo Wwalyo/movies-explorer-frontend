@@ -89,8 +89,8 @@ function App(...props) {
     });  
   }
 
-  const handleUpdateUser = ({ data }) => {
-    authApi.patchUser({ data })
+  const handleUpdateUser = ({ name, email }) => {
+    authApi.patchUser({ name, email })
     .then((updatedUserInfo) => {
       setCurrentUser(updatedUserInfo);
     }) 
