@@ -60,7 +60,6 @@ export default function App(...props) {
   const handleRegisterUser = async ({name, email, password}) => {
     try {
       const user = await api.auth.signup({name, email, password});
-      console.log("зареган");
       setLoggedIn(true);
       localStorage.setItem('token', user.token);
       setCurrentUser(user);     
@@ -73,8 +72,6 @@ export default function App(...props) {
   const handleLoginUser = async ({email, password}) => {
     try {
       const user = await api.auth.signin({email, password});
-      console.log("Вошел");
-      console.log(user.token);
       localStorage.setItem('token', user.token);
       setCurrentUser(user);
       setLoggedIn(true);
