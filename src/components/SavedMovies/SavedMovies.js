@@ -15,7 +15,7 @@ import './SavedMovies.css';
 import '../Header/Header.css';
 import '../Profile/Profile.css';
 
-export default function SavedMovies({onOpenMenu}) {
+export default function SavedMovies({onOpenMenu, onProfileClick}) {
   const [query, setQuery] = useState({});
   const setSearchWord = (search) => {
     setQuery({
@@ -53,8 +53,8 @@ export default function SavedMovies({onOpenMenu}) {
             </li>
           </ul>
           <div className="Profile__links">
-            <span className="Profile__link">Аккаунт</span>
-            <button className="Profile__icon-link"></button>
+            <span className="Profile__link" onClick = {onProfileClick}>Аккаунт</span>
+            <button className="Profile__icon-link" onClick = {onProfileClick}></button>
           </div>
         </div>
       </div>

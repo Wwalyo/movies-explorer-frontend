@@ -11,26 +11,41 @@ import logo from '../../images/logo.svg';
 import burger from '../../images/burger.svg';
 import api from '../../api';
 import useRequest from '../../utils/useRequest';
-import useMediaQuery from '../../utils/useMediaQuery';
+import useScreenSize from '../../utils/useScreenSize';
 
 import './Movies.css';
 import '../Header/Header.css';
 import '../Profile/Profile.css';
 
 const INITIAL_PAGES_COUNT = 1;
-const MEDIA_QUERIES = {
+const SCREEN_SIZES = {
   'large': '(min-width: 769px)',
   'medium': '(min-width: 481px) and (max-width: 768px)',
   'small': '(min-width: 320px) and (max-width: 480px)'
 };
 
-export default function Movies({onOpenMenu, ...props}) {
-  const media = useMediaQuery(MEDIA_QUERIES);
-  console.log('media', media);
+const getItemsPerPage = (screenSize) => {
+  if (screenSize === 'large') return 3;
+  return 2;
+};
+
+export default function Movies({onOpenMenu, onProfileClick, ...props}) {
+  const screenSize = useScreenSize(SCREEN_SIZES);
   const [query, setQuery] = useState({
-    itemsPerPage: 3,
+    itemsPerPage: getItemsPerPage(screenSize),
     pagesCount: INITIAL_PAGES_COUNT
   });
+
+  useEffect(() => {
+    const itemsPerPage = getItemsPerPage(screenSize);
+    if (itemsPerPage !== query.itemsPerPage) {
+      setQuery({
+        ...query,
+        itemsPerPage
+      });
+    }
+  }, [setQuery, screenSize]);
+
   const [canLoadMore, setCanLoadMore] = useState(false);
   const fetch = useCallback(async ({search, itemsPerPage, pagesCount, isShort}) => {
     if (!search) return null;
@@ -94,8 +109,8 @@ export default function Movies({onOpenMenu, ...props}) {
             </li>
           </ul>
           <div className="Profile__links">
-            <span className="Profile__link">Аккаунт</span>
-            <button className="Profile__icon-link"></button>
+            <span className="Profile__link" onClick = {onProfileClick}>Аккаунт</span>
+            <button className="Profile__icon-link" onClick = {onProfileClick}></button>
           </div>
         </div>
       </div>

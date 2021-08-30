@@ -11,7 +11,8 @@ import {FormWithValidation} from '../FormValidation';
 import logo from '../../images/logo.svg';
 import burger from '../../images/burger.svg';
 
-function Profile({onOpenMenu, isMenuOpen, ...props}) {
+function Profile({onOpenMenu, isMenuOpen, onExit, onIconClick,  ...props}) {
+  
   const { values, handleChange, errors, isValid, resetForm } = FormWithValidation();
   
   const SubmitClassName = classNames('Profile__edit-link', {
@@ -29,8 +30,7 @@ function Profile({onOpenMenu, isMenuOpen, ...props}) {
     if (!isValid){
       return;
     }
-    console.log(values);
-    props.onLoginUser({
+    props.onUpdateUser({
       name: values.profileName || currentUser.name,
       email: values.profileEmail || currentUser.email,
     });
@@ -40,7 +40,7 @@ function Profile({onOpenMenu, isMenuOpen, ...props}) {
   return (
     <div className={ProfileClassName}>
       <div className="Profile__header">
-        <img src={logo} className="Header__logo" alt="Логотип Movie"/>     
+        <img src={logo} className="Header__logo" onClick = {onIconClick} alt="Логотип Movie"/>     
         <img src={burger} className="Burger" onClick={onOpenMenu} alt="открывающееся меню"/>
         <div className="Profile__Navigation">
           <ul className="Profile__films-list">
@@ -61,7 +61,7 @@ function Profile({onOpenMenu, isMenuOpen, ...props}) {
       <form className="Profile-content">
         <div className="Profile-content__cell">
           <p className="Profile-content__cell_name">Имя</p>
-          <input className="Profile-content__cell_value" name = "profileName" onChange = {handleChange} value = {values.profileName || currentUser.name} />          
+          <input className="Profile-content__cell_value" name = "profileName" onChange = {handleChange} value = {values.profileName || currentUser.name } />          
         </div>
         <hr className="Profile__line"></hr>
         <div className="Profile-content__cell">
@@ -70,7 +70,7 @@ function Profile({onOpenMenu, isMenuOpen, ...props}) {
         </div>
       </form>
         <Link to="/sign-in" className={SubmitClassName} onClick = {handleEditProfile}>Редактировать</Link>
-        <Link to="/" className="Profile__exit-link">Выйти из аккаунта</Link>      
+        <Link to="/" className="Profile__exit-link" onClick = {onExit}>Выйти из аккаунта</Link>      
     </div>
   );
 }

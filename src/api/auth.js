@@ -11,7 +11,7 @@ export default class Auth {
     }
     throw new Error(`Что-то пошло не так: ${response.status}`);
   }
-  async sigup({name,password, email}) {
+  async signup({name,password, email}) {
     this._intApi.token = null;
     const response = await this._intApi.post('/signup', {name, password, email});
     if (response.token) {

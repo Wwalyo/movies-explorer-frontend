@@ -62,7 +62,8 @@ export default function App(...props) {
       const user = await api.auth.signup({name, email, password});
       console.log("зареган");
       setLoggedIn(true);
-      setCurrentUser(user);
+      localStorage.setItem('token', user.token);
+      setCurrentUser(user);     
       history.push('/movies');
     } catch (err) {
       console.log('Ошибка. Запрос не выполнен: ', err);
@@ -83,14 +84,25 @@ export default function App(...props) {
     }
   };
 
-  const handleUpdateUser = async ({data}) => {
+  const handleUpdateUser = async ({name, email}) => {
     try {
-      const user = await api.auth.updateSelf({data});
+      const user = await api.auth.updateSelf({name, email});
       setCurrentUser(user);
     } catch (err) {
       console.log('Ошибка. Запрос не выполнен: ', err);
     }
   };
+
+  const handleClick = (place) => {
+    history.push(place);
+  }
+
+  const signOut = () => {
+    localStorage.removeItem('token');
+    setLoggedIn(false);
+    history.push('/');
+  }
+
 
   if (!loaded) return null;
 
@@ -105,17 +117,17 @@ export default function App(...props) {
             <Route path="/sign-up">
               <Register onRegisterUser={handleRegisterUser} />
             </Route>
-            <ProtectedRoute path="/profile" component={Profile} loggedIn={loggedIn} onOpenMenu={handleMenuClick} onLoginUser = {handleUpdateUser} isMenuOpen={isMenuOpen} />
-            <ProtectedRoute path="/movies" component={Movies} loggedIn={loggedIn} onOpenMenu={handleMenuClick} onMovieClick={handleMovieClick}/>
-            <ProtectedRoute path="/saved-movies" component={SavedMovies} loggedIn={loggedIn} onOpenMenu={handleMenuClick} onMovieClick={handleMovieClick}/>
+            <ProtectedRoute path="/profile" component={Profile} loggedIn={loggedIn} onOpenMenu={handleMenuClick} onExit = {signOut} onUpdateUser = {handleUpdateUser} isMenuOpen={isMenuOpen} onIconClick = {() => {handleClick('/')}}  />
+            <ProtectedRoute path="/movies" component={Movies} loggedIn={loggedIn} onOpenMenu={handleMenuClick} onMovieClick={handleMovieClick} onProfileClick = {() => {handleClick('/profile')}}/>
+            <ProtectedRoute path="/saved-movies" component={SavedMovies} loggedIn={loggedIn} onOpenMenu={handleMenuClick} onMovieClick={handleMovieClick} onProfileClick = {() => {handleClick('/profile')}}/>
             <Route exact path="/">
-              <Header />
+              <Header onIconClick = {() => {handleClick('/')}} />
               <Main/>
               <Footer/>
             </Route>
             <Route exact path="*" component={NotFound} />
           </Switch>
-          <Navigation onCloseMenu={handleCloseMenuClick} isMenuOpen={isMenuOpen} />
+          <Navigation onCloseMenu={handleCloseMenuClick} isMenuOpen={isMenuOpen} onProfileClick = {() => {handleClick('/profile')}} />
         </div>
       </CurrentUserContext.Provider>
     </Router>
