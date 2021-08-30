@@ -30,7 +30,7 @@ function Register({...props}) {
   }  
 
   return (
-    <div class="Register">          
+    <div className="Register">          
       <form className="Login__form">
         <img src={logo} className="Header__logo Logo_auth" alt="Логотип Movie"/>
         <h2 className="Login__title">Добро пожаловать!</h2>
