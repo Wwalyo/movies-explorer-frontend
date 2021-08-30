@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
 
@@ -10,69 +10,50 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import logo from '../../images/logo.svg';
 import burger from '../../images/burger.svg';
 import api from '../../api';
+import useRequest from '../../utils/useRequest';
+import useMediaQuery from '../../utils/useMediaQuery';
 
 import './Movies.css';
 import '../Header/Header.css';
 import '../Profile/Profile.css';
 
-const DEFAULT_QUERY = {
-  itemsPerPage: 3,
-  pagesCount: 1
+const INITIAL_PAGES_COUNT = 1;
+const MEDIA_QUERIES = {
+  'large': '(min-width: 769px)',
+  'medium': '(min-width: 481px) and (max-width: 768px)',
+  'small': '(min-width: 320px) and (max-width: 480px)'
 };
 
-export default function Movies({onOpenMenu, location, ...props}) {
-  const [movies, setMovies] = useState();
-  const [query, setQuery] = useState(DEFAULT_QUERY);
+export default function Movies({onOpenMenu, ...props}) {
+  const media = useMediaQuery(MEDIA_QUERIES);
+  console.log('media', media);
+  const [query, setQuery] = useState({
+    itemsPerPage: 3,
+    pagesCount: INITIAL_PAGES_COUNT
+  });
   const [canLoadMore, setCanLoadMore] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState();
+  const fetch = useCallback(async ({search, itemsPerPage, pagesCount, isShort}) => {
+    if (!search) return null;
+    const limit = itemsPerPage * pagesCount + 1;
+    const result = await api.movies.get({search, limit, offset: 0, isShort});
+    setCanLoadMore(result.length >= limit);
+    if (result.length >= limit) return result.slice(0, result.length - 1);
+    else return result;
+  }, [api.movies.get, query]);
+  const {loading, response: movies, error} = useRequest(fetch, [query]);
 
   const setSearchWord = (search) => {
     setQuery({
-      ...DEFAULT_QUERY,
-      isShort: query.isShort,
+      ...query,
+      pagesCount: INITIAL_PAGES_COUNT,
       search
     });
-  };
-
-  const requery = async () => {
-    setLoading(true);
-    try {
-      const movies = await api.movies.get(query);
-      const neededCount = query.itemsPerPage * query.pagesCount;
-      setCanLoadMore(movies.length > neededCount);
-      setMovies(movies.slice(0, neededCount));
-      setError(null);
-      setLoading(false);
-    } catch (err) {
-      setError('бла-бла-бла');
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    if (query && query.search) {
-      requery();
-    } else {
-      setError(null);
-      setMovies(null);
-    }
-  }, [query, setMovies, setLoading, setError]);
-
-  const handleLike = async (value) => {
-    await api.movies.like(value);
-    await requery();
-  };
-
-  const handleUnlike = async (value) => {
-    await api.movies.unLike(value);
-    await requery();
   };
 
   const handleFilter = (e) => {
     setQuery({
       ...query,
-      ...DEFAULT_QUERY,
+      pagesCount: INITIAL_PAGES_COUNT,
       [e.target.name]: e.target.checked
     });
   };
@@ -84,8 +65,18 @@ export default function Movies({onOpenMenu, location, ...props}) {
     });
   };
 
+  const handleLike = async (value) => {
+    await api.movies.like(value);
+    setQuery({...query});
+  };
+
+  const handleUnlike = async (value) => {
+    await api.movies.unLike(value);
+    setQuery({...query});
+  };
+
   const moreClassName = classNames('Movies__continueButton', {
-    'Movies__continueButton_inactive': !movies
+    'Movies__continueButton_inactive': !canLoadMore
   });
 
   return (
@@ -110,9 +101,9 @@ export default function Movies({onOpenMenu, location, ...props}) {
       </div>
       <SearchForm onMoviesSearch={setSearchWord} />
       <FilterCheckbox value={query} onChange={handleFilter} />
-      <hr className="Movies__line"></hr>
+      <hr className="Movies__line" />
       <MoviesCardList loading={loading} movies={movies} canLike onLike={handleLike} onUnlike={handleUnlike} />
-      {canLoadMore ? <button className={moreClassName} onClick={loadMore}>Ещё</button> : null}
+      {!!movies ? <button className={moreClassName} onClick={loadMore}>Ещё</button> : null}
       <Footer/>
     </div>
   );

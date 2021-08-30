@@ -9,39 +9,22 @@ import SearchForm from '../SearchForm/SearchForm';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import api from '../../api';
+import useRequest from '../../utils/useRequest';
 
 import './SavedMovies.css';
 import '../Header/Header.css';
 import '../Profile/Profile.css';
 
 export default function SavedMovies({onOpenMenu}) {
-  const [movies, setMovies] = useState();
   const [query, setQuery] = useState({});
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState();
-
   const setSearchWord = (search) => {
     setQuery({
+      ...query,
       search
     });
   };
 
-  const requery = async () => {
-    setLoading(true);
-    try {
-      const movies = await api.movies.getFavorites(query);
-      setMovies(movies);
-      setError(null);
-      setLoading(false);
-    } catch (err) {
-      setError('бла-бла-бла');
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    requery();
-  }, [query]);
+  const {loading, response: movies, error} = useRequest(api.movies.getFavorites, [query]);
 
   const handleFilter = (e) => {
     setQuery({
@@ -52,7 +35,7 @@ export default function SavedMovies({onOpenMenu}) {
 
   const handleUnlike = async (value) => {
     await api.movies.unLike(value);
-    await requery();
+    setQuery({...query});
   };
 
   return (

@@ -2,6 +2,13 @@
   display: flex;
   flex-direction: column;
   min-width: 300px;
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+.MoviesCard_loading {
+  opacity: .3;
+  pointer-events: none;
 }
 
 .MoviesCard__header {
@@ -19,7 +26,7 @@
   justify-content: flex-start;
 }
 
-.MoviesCard__name {  
+.MoviesCard__name {
   color: #FFFFFF;
   font-weight: 500;
   font-size: 15px;
@@ -43,7 +50,7 @@
 
 .MoviesCard__fav {
   align-self: center;
-  background: #313131;  
+  background: #313131;
   background-image: url('../../images/inactivSavedIcon.svg');
   background-size: cover;
   border: none;
@@ -59,7 +66,7 @@
 }
 
 .MoviesCard__fav_isLiked {
-  background: #3DDC84; 
+  background: #3DDC84;
   background-image: url('../../images/activeSavedIcon.svg');
 }
 

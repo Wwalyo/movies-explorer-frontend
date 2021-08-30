@@ -8,23 +8,26 @@ export default class Movies {
     this._extApi = extApi;
     this._sourceMovies = null;
     this._promiseGetSourceMovies = null;
+    //
+    this.get = this.get.bind(this);
+    this.getFavorites = this.getFavorites.bind(this);
   }
-  async get({search, itemsPerPage, pagesCount, isShort}) {
+  async get({search, limit, offset, isShort}) {
     const [source, likes] = await Promise.all([this._getSourceMovies(), this._getLikes()]);
     const searchUpperCased = (search || '').toUpperCase();
     const found = source.filter(item =>
       (item.nameRU || '').toUpperCase().indexOf(searchUpperCased) >= 0
       && (!isShort || checkIsShort(item))
     );
-    const paged = found.slice(0, itemsPerPage * pagesCount + 1);
-    const result = paged.map(item => {
+    const limited = limit !== undefined || offset !== undefined ? found.slice(offset || 0, (offset || 0) + (limit || 0)) : found;
+    const result = limited.map(item => {
+      const result = {...item};
       const isLiked = likes[item.id];
-      if (!!isLiked) return {
-        ...item,
-        isLiked: true,
-        internalId: isLiked
-      };
-      return item;
+      if (!!isLiked) {
+        result.isLiked = true;
+        result.internalId = isLiked;
+      }
+      return result;
     });
     return result;
   }
@@ -64,7 +67,14 @@ export default class Movies {
     return index;
   }
   async _getSourceMoviesHandler() {
-    this._sourceMovies = await this._extApi.get('/beatfilm-movies');
+    const result = await this._extApi.get('/beatfilm-movies');
+    this._sourceMovies = result.map(item => ({
+      ...item,
+      image: {
+        ...item.image,
+        url: `https://api.nomoreparties.co${item.image.url}`
+      }
+    }));
     this._promiseGetSourceMovies = null;
     return this._sourceMovies;
   }

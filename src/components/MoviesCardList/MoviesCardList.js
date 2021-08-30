@@ -11,7 +11,7 @@ export default function MoviesCardList({loading, movies, canLike, onLike, onUnli
   return (
     <section className="MoviesCardList">
       {movies.map((item) => (
-        <MoviesCard canBeLiked={canLike} value={item} onLike={onLike} onUnlike={onUnlike} key={item.id} />
+        <MoviesCard loading={loading} canBeLiked={canLike} value={item} onLike={onLike} onUnlike={onUnlike} key={item.id} />
       ))}
       {loading ? <Preloader /> : null}
     </section>

@@ -21,8 +21,8 @@ export default function SearchForm({...props}) {
 
   return (
     <form className="SearchForm" onSubmit={handleSubmit} >
-      <input type="text" className="SearchForm__input" name="searchInput" placeholder="Фильм" autoComplete = "off" onChange ={handleChange} pattern = "^[A-Za-zА-ЯЁа-яё -]+$" value={values.searchInput || ''} required/>
-      <button type="submit" className={SubmitClassName}  >Поиск</button>
+      <input type="search" className="SearchForm__input" name="searchInput" autoFocus placeholder="Фильм" autoComplete="off" onChange={handleChange} pattern="^[A-Za-zА-ЯЁа-яё -]+$" value={values.searchInput || ''} required />
+      <button type="submit" className={SubmitClassName}>Поиск</button>
     </form>
   )
 };
