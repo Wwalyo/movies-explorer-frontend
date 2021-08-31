@@ -30,7 +30,7 @@ export default function App(...props) {
   React.useEffect(() => {
     (async () => {
       if (!localStorage.token) {
-        history.replace('/sign-in');
+        history.replace('/');
       } else {
         try {
           const user = await api.auth.getSession(localStorage.token);
@@ -38,7 +38,7 @@ export default function App(...props) {
           setCurrentUser(user);
         } catch (err) {
           delete localStorage.token;
-          history.replace('/sign-in');
+          history.replace('/');
         }
       }
       setLoaded(true);
