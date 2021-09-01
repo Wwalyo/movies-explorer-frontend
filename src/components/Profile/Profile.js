@@ -34,6 +34,7 @@ function Profile({onOpenMenu, isMenuOpen, onExit, onIconClick,  ...props}) {
       name: values.profileName || currentUser.name,
       email: values.profileEmail || currentUser.email,
     });
+    alert("Провиль отредактирован");
   }
 
   if (!currentUser) return null;

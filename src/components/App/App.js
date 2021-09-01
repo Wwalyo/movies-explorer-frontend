@@ -56,19 +56,7 @@ export default function App(...props) {
   const handleMovieClick = (movie) => {
     setSelectedMovie(movie);
   };
-
-  const handleRegisterUser = async ({name, email, password}) => {
-    try {
-      const user = await api.auth.signup({name, email, password});
-      setLoggedIn(true);
-      localStorage.setItem('token', user.token);
-      setCurrentUser(user);     
-      history.push('/movies');
-    } catch (err) {
-      console.log('Ошибка. Запрос не выполнен: ', err);
-    }
-  };
-
+  
   const handleLoginUser = async ({email, password}) => {
     try {
       const user = await api.auth.signin({email, password});
@@ -77,15 +65,29 @@ export default function App(...props) {
       setLoggedIn(true);
       history.push('/movies');
     } catch (err) {
+      alert("Произошла ошибка, пользователь не авторизован");
       console.log('Ошибка. Запрос не выполнен: ', err);
     }
   };
+
+  const handleRegisterUser = async ({name, email, password}) => {
+    try {
+      const user = await api.auth.signup({name, email, password});
+      await handleLoginUser({email, password});
+    } catch (err) {
+      alert("Произошла ошибка, пользователь не зарегистрирован");
+      console.log('Ошибка. Запрос не выполнен: ', err);
+    }
+  };
+
+
 
   const handleUpdateUser = async ({name, email}) => {
     try {
       const user = await api.auth.updateSelf({name, email});
       setCurrentUser(user);
     } catch (err) {
+      alert("Произошла ошибка, данные не измнены");
       console.log('Ошибка. Запрос не выполнен: ', err);
     }
   };

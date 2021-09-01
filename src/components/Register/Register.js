@@ -21,6 +21,9 @@ function Register({...props}) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (!isValid){
+      return;
+    }
     props.onRegisterUser({
       name: values.nameInput,
       email: values.emailInput,
