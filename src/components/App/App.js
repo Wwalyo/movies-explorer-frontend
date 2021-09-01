@@ -72,7 +72,7 @@ export default function App(...props) {
 
   const handleRegisterUser = async ({name, email, password}) => {
     try {
-      const user = await api.auth.signup({name, email, password});
+      await api.auth.signup({name, email, password});
       await handleLoginUser({email, password});
     } catch (err) {
       alert("Произошла ошибка, пользователь не зарегистрирован");
@@ -120,7 +120,7 @@ export default function App(...props) {
             <ProtectedRoute path="/movies" component={Movies} loggedIn={loggedIn} onOpenMenu={handleMenuClick} onMovieClick={handleMovieClick} onProfileClick = {() => {handleClick('/profile')}}/>
             <ProtectedRoute path="/saved-movies" component={SavedMovies} loggedIn={loggedIn} onOpenMenu={handleMenuClick} onMovieClick={handleMovieClick} onProfileClick = {() => {handleClick('/profile')}}/>
             <Route exact path="/">
-              <Header onIconClick = {() => {handleClick('/')}} />
+              <Header onIconClick = {() => {handleClick('/')}} onOpenMenu={handleMenuClick}loggedIn = {loggedIn}/>
               <Main/>
               <Footer/>
             </Route>

@@ -1,18 +1,30 @@
 import { Link } from 'react-router-dom';
 
 import './Header.css';
+import LinkList from '../LinkList/LinkList';
 import logo from '../../images/logo.svg';
+import burger from '../../images/burger.svg';
 
-function Header({onIconClick, ...props}) {
-  return (
-    <header className="Header">
+function Header({onIconClick, loggedIn, onOpenMenu, ...props}) {
+  if (loggedIn) {
+    return (
+      <header className="Header">
       <img src={logo} className="Header__logo" onClick={onIconClick} alt="Логотип Movie"/>      
-      <div className="Header__nav">          
-        <Link to="/sign-up" className="Header__link">Регистрация</Link> 
-        <Link to="/sign-in" className="Header__link-button">Войти</Link>              
-      </div>            
+      <img src={burger} className="Burger" onClick={onOpenMenu} alt="открывающееся меню"/>
+      <LinkList />    
     </header>
-  );
+    )
+  } else {
+    return (
+      <header className="Header">
+        <img src={logo} className="Header__logo" onClick={onIconClick} alt="Логотип Movie"/>      
+        <div className="Header__nav">          
+          <Link to="/sign-up" className="Header__link">Регистрация</Link> 
+          <Link to="/sign-in" className="Header__link-button">Войти</Link>              
+        </div>            
+      </header>
+     );
+  }
 }
   
 export default Header;

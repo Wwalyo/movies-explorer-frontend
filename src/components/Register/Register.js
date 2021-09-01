@@ -15,7 +15,7 @@ function Register({...props}) {
   const { values, handleChange, errors, isValid, resetForm } = FormWithValidation();
 
   const SubmitClassName = classNames('Login__submit Login__submit_reg', {
-    '.Login__submit_inactive': !isValid,
+    'Login__submit_inactive': !isValid,
   });
 
 
