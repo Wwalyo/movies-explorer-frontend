@@ -34,6 +34,7 @@ export default function App(...props) {
       } else {
         try {
           const user = await api.auth.getSession(localStorage.token);
+          api.movies.readCache();
           setLoggedIn(true);
           setCurrentUser(user);
         } catch (err) {

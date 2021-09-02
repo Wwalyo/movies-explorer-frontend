@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import classNames from "classnames";
 
 import './LinkList.css';
 
 
-function LinkList() {
+function LinkList({home, ...props}) {
+  const IconClassName = classNames('LinkList__icon-link', {
+    'LinkList__icon-link_home': home,
+  });
   
   return (
     <div className="LinkList">
@@ -18,7 +22,7 @@ function LinkList() {
     </ul>
     <div className="LinkList__links">
       <span className="LinkList__link">Аккаунт</span>
-      <button className="LinkList__icon-link"></button>
+      <button className = {IconClassName}></button>
     </div>
   </div>
   );

@@ -1,4 +1,6 @@
 const MAX_SHORT_TIME = 40;
+const KEY_MOVIES_QUERY = 'movies_query';
+const KEY_MOVIES_RESULT = 'movies_result';
 
 const checkIsShort = (movie) => movie.duration <= MAX_SHORT_TIME;
 
@@ -8,11 +10,19 @@ export default class Movies {
     this._extApi = extApi;
     this._sourceMovies = null;
     this._promiseGetSourceMovies = null;
+    this._cacheQuery = null;
+    this._cacheResult = null;
     //
     this.get = this.get.bind(this);
     this.getFavorites = this.getFavorites.bind(this);
   }
   async get({search, limit, offset, isShort}) {
+    if (this._cacheQuery && this._cacheQuery.search === search 
+      && this._cacheQuery.limit === limit 
+      && this._cacheQuery.offset === offset 
+      && this._cacheQuery.isShort === isShort) {
+      return this._cacheResult;
+    }
     const [source, likes] = await Promise.all([this._getSourceMovies(), this._getLikes()]);
     const searchUpperCased = (search || '').toUpperCase();
     const found = source.filter(item =>
@@ -29,7 +39,19 @@ export default class Movies {
       }
       return result;
     });
+    this._cacheQuery = {search, limit, offset, isShort};
+    this._cacheResult = result;
+    localStorage[KEY_MOVIES_QUERY] = JSON.stringify(this._cacheQuery);
+    localStorage[KEY_MOVIES_RESULT] = JSON.stringify(this._cacheResult);
     return result;
+  }
+  async readCache() {
+    try {
+    this._cacheQuery = JSON.parse(localStorage[KEY_MOVIES_QUERY]);
+    this._cacheResult = JSON.parse(localStorage[KEY_MOVIES_RESULT]);
+    } catch{
+      return
+    }
   }
   like(movie) {
     const value = this._encode(movie)

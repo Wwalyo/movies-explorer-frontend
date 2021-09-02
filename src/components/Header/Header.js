@@ -6,12 +6,13 @@ import logo from '../../images/logo.svg';
 import burger from '../../images/burger.svg';
 
 function Header({onIconClick, loggedIn, onOpenMenu, ...props}) {
+  const home = true;
   if (loggedIn) {
     return (
       <header className="Header">
       <img src={logo} className="Header__logo" onClick={onIconClick} alt="Логотип Movie"/>      
       <img src={burger} className="Burger" onClick={onOpenMenu} alt="открывающееся меню"/>
-      <LinkList />    
+      <LinkList home = {home}/>    
     </header>
     )
   } else {

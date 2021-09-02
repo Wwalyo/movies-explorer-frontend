@@ -71,5 +71,8 @@
     padding: 0;
     width: 26px;
   }
+  .LinkList__icon-link_home {
+    background-color: #073042;
+  }
   
 }
