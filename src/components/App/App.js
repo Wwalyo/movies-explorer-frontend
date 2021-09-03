@@ -66,7 +66,6 @@ export default function App(...props) {
       setLoggedIn(true);
       history.push('/movies');
     } catch (err) {
-      alert("Произошла ошибка, пользователь не авторизован");
       console.log('Ошибка. Запрос не выполнен: ', err);
     }
   };
@@ -76,7 +75,6 @@ export default function App(...props) {
       await api.auth.signup({name, email, password});
       await handleLoginUser({email, password});
     } catch (err) {
-      alert("Произошла ошибка, пользователь не зарегистрирован");
       console.log('Ошибка. Запрос не выполнен: ', err);
     }
   };
@@ -88,7 +86,6 @@ export default function App(...props) {
       const user = await api.auth.updateSelf({name, email});
       setCurrentUser(user);
     } catch (err) {
-      alert("Произошла ошибка, данные не измнены");
       console.log('Ошибка. Запрос не выполнен: ', err);
     }
   };

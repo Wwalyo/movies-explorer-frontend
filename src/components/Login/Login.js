@@ -12,16 +12,23 @@ import logo from '../../images/logo.svg';
 function Login({...props}) {
 
   const { values, handleChange, errors, isValid, resetForm } = FormWithValidation();
+  const [submitError, setSubmitError] = useState();
   
   const SubmitClassName = classNames('Login__submit', {
     'Login__submit_inactive': !isValid,
   });
+
+  const SubmitErrorClassName = classNames('Profile__submit-error', {
+    'Profile__submit-error_active': submitError,
+    })
   
   function handleSubmit(e) {
     e.preventDefault();
     if (!isValid){
+      setSubmitError(true);
       return;
     }
+    setSubmitError(false);
     props.onLoginUser({
       email: values.emailInput,
       password: values.passwordInput,
@@ -40,6 +47,7 @@ function Login({...props}) {
         <h6 className="Login__input-name">Пароль</h6>
         <input type="password" className="Login__input Login__password" onChange={handleChange} name="passwordInput" pattern = "[1-9A-Za-z]{8}$" value={values.passwordInput || ''} required/>
         <span className='Login__input-error'>{errors.passwordInput || ''}</span>
+        <span className={SubmitErrorClassName}>Ошибка, не удалось войти в профиль</span>
         <button type="submit" className={SubmitClassName} onClick={handleSubmit} >Войти</button>
         <div className="Login__hint">
           <p className="Login__hint-text">Ещё не зарегистрированы?</p>

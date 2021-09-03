@@ -14,10 +14,16 @@ import burger from '../../images/burger.svg';
 function Profile({onOpenMenu, isMenuOpen, onExit, onIconClick,  ...props}) {
   
   const { values, handleChange, errors, isValid, resetForm } = FormWithValidation();
+
+  const [submitError, setSubmitError] = useState();
   
   const SubmitClassName = classNames('Profile__edit-link', {
     'Profile__edit-link_inactive': !isValid,
   });
+
+  const SubmitErrorClassName = classNames('Profile__submit-error', {
+    'Profile__submit-error_active': submitError,
+    })
 
   const currentUser = React.useContext(CurrentUserContext); 
 
@@ -28,8 +34,10 @@ function Profile({onOpenMenu, isMenuOpen, onExit, onIconClick,  ...props}) {
   const handleEditProfile = (e) => {
     e.preventDefault();
     if (!isValid){
+      setSubmitError(true);
       return;
     }
+    setSubmitError(false);
     props.onUpdateUser({
       name: values.profileName || currentUser.name,
       email: values.profileEmail || currentUser.email,
@@ -51,13 +59,15 @@ function Profile({onOpenMenu, isMenuOpen, onExit, onIconClick,  ...props}) {
           <p className="Profile-content__cell_name">Имя</p>
           <input className="Profile-content__cell_value" name = "profileName" onChange = {handleChange} value = {values.profileName || currentUser.name } />          
         </div>
+        <span className='Profile__input-error'>{errors.profileName || ''}</span>
         <hr className="Profile__line"></hr>
         <div className="Profile-content__cell">
           <p className="Profile-content__cell_name">E-mail</p>
           <input className="Profile-content__cell_value" name = "profileEmail" onChange = {handleChange} value = {values.profileEmail || currentUser.email} />        
         </div>
+        <span className='Profile__input-error'>{errors.profileEmail || ''}</span>
       </form>
-        <span className='Profile__submit-error'>Ошибка, профиль не отредактирован</span>
+        <span className= {SubmitErrorClassName}>Ошибка, профиль не отредактирован</span>
         <Link to="/sign-in" className={SubmitClassName} onClick = {handleEditProfile}>Редактировать</Link>
         <Link to="/" className="Profile__exit-link" onClick = {onExit}>Выйти из аккаунта</Link>      
     </div>

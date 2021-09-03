@@ -14,16 +14,23 @@ function Register({...props}) {
 
   const { values, handleChange, errors, isValid, resetForm } = FormWithValidation();
 
+  const [submitError, setSubmitError] = useState();
+
   const SubmitClassName = classNames('Login__submit Login__submit_reg', {
     'Login__submit_inactive': !isValid,
   });
 
+  const SubmitErrorClassName = classNames('Profile__submit-error', {
+    'Profile__submit-error_active': submitError,
+    })
 
   function handleSubmit(e) {
     e.preventDefault();
     if (!isValid){
+      setSubmitError(true);
       return;
     }
+    setSubmitError(false);
     props.onRegisterUser({
       name: values.nameInput,
       email: values.emailInput,
@@ -31,6 +38,7 @@ function Register({...props}) {
     });
     resetForm();
   }  
+
 
   return (
     <div className="Register">          
@@ -46,6 +54,7 @@ function Register({...props}) {
         <h6 className="Login__input-name">Пароль</h6>
         <input type="password" className="Login__input Login__password" onChange={handleChange} name = "passwordInput" pattern = "[1-9A-Za-z]{8}$" value={values.passwordInput || ''} required/>
         <span className='Login__input-error'>{errors.passwordInput}</span>
+        <span className={SubmitErrorClassName}>Ошибка, профиль не зарегистрирован</span>
         <button type="submit" className={SubmitClassName} onClick={handleSubmit}>Зарегистрироваться</button>
         <div className="Login__hint">
           <p className="Login__hint-text">Уже зарегистрированы?</p>
