@@ -14,7 +14,7 @@ function Register({...props}) {
 
   const { values, handleChange, errors, isValid, resetForm } = FormWithValidation();
 
-  const [submitError, setSubmitError] = useState();
+  const [submitError, setSubmitError] = React.useState();
 
   const SubmitClassName = classNames('Login__submit Login__submit_reg', {
     'Login__submit_inactive': !isValid,
