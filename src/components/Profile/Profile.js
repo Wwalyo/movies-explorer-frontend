@@ -15,7 +15,7 @@ function Profile({onOpenMenu, isMenuOpen, onExit, onIconClick,  ...props}) {
   
   const { values, handleChange, errors, isValid, resetForm } = FormWithValidation();
 
-  const [submitError, setSubmitError] = useState();
+  const [submitError, setSubmitError] = React.useState();
   
   const SubmitClassName = classNames('Profile__edit-link', {
     'Profile__edit-link_inactive': !isValid,
