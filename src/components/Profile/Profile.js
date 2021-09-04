@@ -18,7 +18,7 @@ function Profile({onOpenMenu, isMenuOpen, onExit, onIconClick,  ...props}) {
   const [submitError, setSubmitError] = React.useState();
   
   const SubmitClassName = classNames('Profile__edit-link', {
-    'Profile__edit-link_inactive': !isValid,
+    'Profile__edit-link_inactive': !isValid || values.profileName === '' || values.profileEmail === '',
   });
 
   const SubmitErrorClassName = classNames('Profile__submit-error', {
@@ -33,7 +33,7 @@ function Profile({onOpenMenu, isMenuOpen, onExit, onIconClick,  ...props}) {
 
   const handleEditProfile = (e) => {
     e.preventDefault();
-    if (!isValid){
+    if (!isValid && values.profileName === '' && values.profileEmail === ''){
       setSubmitError(true);
       return;
     }
@@ -57,19 +57,20 @@ function Profile({onOpenMenu, isMenuOpen, onExit, onIconClick,  ...props}) {
       <form className="Profile-content">
         <div className="Profile-content__cell">
           <p className="Profile-content__cell_name">Имя</p>
-          <input className="Profile-content__cell_value" name = "profileName" onChange = {handleChange} value = {values.profileName || currentUser.name } />          
+          <input type="text" className="Profile-content__cell_value" name = "profileName" onChange = {handleChange} pattern = "^[A-Za-zА-ЯЁа-яё -]+$" value = {values.profileName || currentUser.name } />          
         </div>
         <span className='Profile__input-error'>{errors.profileName || ''}</span>
         <hr className="Profile__line"></hr>
         <div className="Profile-content__cell">
           <p className="Profile-content__cell_name">E-mail</p>
-          <input className="Profile-content__cell_value" name = "profileEmail" onChange = {handleChange} value = {values.profileEmail || currentUser.email} />        
+          <input type="email" className="Profile-content__cell_value" name = "profileEmail" onChange = {handleChange} value = {values.profileEmail || currentUser.email} />        
         </div>
         <span className='Profile__input-error'>{errors.profileEmail || ''}</span>
-      </form>
         <span className= {SubmitErrorClassName}>Ошибка, профиль не отредактирован</span>
         <Link to="/sign-in" className={SubmitClassName} onClick = {handleEditProfile}>Редактировать</Link>
-        <Link to="/" className="Profile__exit-link" onClick = {onExit}>Выйти из аккаунта</Link>      
+        <Link to="/" className="Profile__exit-link" onClick = {onExit}>Выйти из аккаунта</Link>    
+      </form>
+  
     </div>
   );
 }

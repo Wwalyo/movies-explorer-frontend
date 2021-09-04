@@ -30,13 +30,12 @@ function Register({...props}) {
       setSubmitError(true);
       return;
     }
-    setSubmitError(false);
     props.onRegisterUser({
       name: values.nameInput,
       email: values.emailInput,
       password: values.passwordInput,
     });
-    resetForm();
+    setSubmitError(false);
   }  
 
 
