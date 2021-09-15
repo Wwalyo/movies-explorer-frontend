@@ -1,0 +1,78 @@
+.LinkList {
+  display: none;
+  pointer-events: none; 
+  visibility: hidden; 
+}
+
+
+
+@media screen and (min-width: 482px) and (max-width: 1044px) {
+
+}
+
+@media screen and (min-width: 1045px) {
+
+  .LinkList {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 28px;
+    margin-right: 70px;
+    pointer-events: auto; 
+    visibility: visible; 
+    width: 100%;
+  }
+
+  .LinkList__films-list {
+    align-items: center;    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0px;
+  }
+
+  .LinkList__film {
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    margin-left: 16px;
+    margin-bottom: 24px;
+    padding: 0px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .LinkList__film:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  .LinkList__link {
+    align-self: center;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    margin-right: 17px;
+  }
+
+  .LinkList__icon-link {
+    background-color: #313131;
+    background-image: url("../../images/accountIcon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 4px;
+    height: 30px;
+    padding: 0;
+    width: 26px;
+  }
+  .LinkList__icon-link_home {
+    background-color: #073042;
+  }
+  
+}

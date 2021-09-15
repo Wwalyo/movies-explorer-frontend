@@ -40,13 +40,15 @@
   opacity: 0.8;
 }
 
+.Movies__continueButton_inactive {
+  pointer-events: none;
+  visibility: hidden; 
+  opacity: 0;
+}
+
 @media screen and (min-width: 482px) and (max-width: 1044px) {
   .Movies__line {
     width: Calc(100% - 60px);
-  }
-
-  .Movies__continueButton {
-    width: 320px;
   }
 }
 

@@ -2,10 +2,11 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import './Navigation.css';
 
-function Navigation({onCloseMenu, isMenuOpen}) {
+function Navigation({onCloseMenu, isMenuOpen, onProfileClick}) {
   const NavigationClassName = classNames('Navigation', {
     'Navigation_open': isMenuOpen,
   });
+
 
   return (
     <div className={NavigationClassName}>
@@ -23,8 +24,8 @@ function Navigation({onCloseMenu, isMenuOpen}) {
           </li>
         </ul>
         <div className="Navigation__profile">
-          <span className="Navigation__profile-acc">Аккаунт</span>
-          <button className="Navigation__profile-icon"></button>
+          <span className="Navigation__profile-acc" onClick = {onProfileClick}>Аккаунт</span>
+          <button className="Navigation__profile-icon" onClick = {onProfileClick}></button>
         </div>
         </div>
               

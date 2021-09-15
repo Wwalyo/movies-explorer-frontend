@@ -1,12 +1,28 @@
+import classNames from 'classnames';
+
+import {FormWithValidation} from '../FormValidation';
+
 import './SearchForm.css';
 
-function SearchForm() {
-    return (
-      <div className="SearchForm">
-        <input type="search" className="SearchForm__input" name="search-input" placeholder="Фильм" required/>
-        <button type="submit" className="SearchForm__button">Поиск</button>
-      </div>
-    )
-  }
-  
-  export default SearchForm;
+export default function SearchForm({...props}) {
+  const { values, handleChange, errors, isValid, resetForm } = FormWithValidation();
+
+  const SubmitClassName = classNames('SearchForm__button', {
+    'SearchForm__button_inactive': !isValid,
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!isValid){
+      return;
+    }
+    props.onMoviesSearch(values.searchInput);
+  };
+
+  return (
+    <form className="SearchForm" onSubmit={handleSubmit} >
+      <input type="search" className="SearchForm__input" name="searchInput" autoFocus placeholder="Фильм" autoComplete="off" onChange={handleChange} pattern="^[A-Za-zА-ЯЁа-яё -]+$" value={values.searchInput || ''} required />
+      <button type="submit" className={SubmitClassName}>Поиск</button>
+    </form>
+  )
+};

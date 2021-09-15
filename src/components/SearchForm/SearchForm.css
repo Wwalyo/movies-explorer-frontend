@@ -14,10 +14,27 @@
 .SearchForm__input {
   background-color: #202020;
   border: none;
+  box-sizing: border-box;
   color: #FFFFFF;
   font-size: 16px;
+  height: 100%;
   line-height: 16px;
+  margin-bottom: 6px;
   margin-left: 12px;
+  margin-top: 6px;
+  outline : none;
+  width: 100%;
+}
+
+.SearchForm__input:focus {
+  background-color: #202020;
+}
+
+.SearchForm__input:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-color: #202020 !important;
+  background-image: none !important;
+  color: -internal-light-dark(black, white) !important;
 }
 
 .SearchForm__button {
@@ -37,6 +54,11 @@
 .SearchForm__button:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+
+.SearchForm__button_inactive {
+  background:#8B8B8B;
+  pointer-events: none;
 }
 
 @media screen and (min-width: 482px) and (max-width: 1044px) {

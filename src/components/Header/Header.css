@@ -17,6 +17,13 @@
 .Header__logo:hover {
   cursor: pointer;
 }
+.Burger {
+  margin-right: 14px;
+}
+.Burger:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
 .Header__nav {
   align-items: center;
   display: table-cell;
@@ -52,6 +59,10 @@
   opacity: 0.6;
 }
 @media screen and (min-width: 482px) and (max-width: 1044px) {
+  .Burger {
+    margin-right: 30px;
+  }
+
   .Header__logo {
     margin-left: 30px;    
   }
@@ -68,6 +79,11 @@
 @media screen and (min-width: 1045px) {
   .Header__logo {
     margin-left: 70px;
+  }
+  .Burger {
+    display: none;
+    pointer-events: none; 
+    visibility: hidden; 
   }
   .Header__link {
     font-size: 12px;

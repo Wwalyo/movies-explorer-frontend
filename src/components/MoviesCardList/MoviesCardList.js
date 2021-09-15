@@ -1,16 +1,19 @@
-import MoviesCard from '../MoviesCard/MoviesCard';
-import './MoviesCardList.css';
-import cards from '../../utils/cards-list';
+import React from 'react';
 
-function MoviesCardList({place, ...props}) {
-  const items = place === 'saved' ? cards.filter(item => item.like) : cards;
+import Preloader from '../Preloader/Preloader';
+import MoviesCard from '../MoviesCard/MoviesCard';
+
+import './MoviesCardList.css';
+
+export default function MoviesCardList({loading, movies, canLike, onLike, onUnlike}) {
+  if (!movies) return null;
+  if (!movies.length) return (<span className="MoviesCardList__NothingFound">Нет найденных фильмов</span>);
   return (
     <section className="MoviesCardList">
-      {items.map((item) => (
-        <MoviesCard card={item} canLike={place !== 'saved'} key={item.id} /> 
+      {movies.map((item) => (
+        <MoviesCard loading={loading} canBeLiked={canLike} value={item} onLike={onLike} onUnlike={onUnlike} key={item.id} />
       ))}
+      {loading ? <Preloader /> : null}
     </section>
   )
-}
-  
-  export default MoviesCardList;
+};
